@@ -83,16 +83,26 @@ export default defineType({
 			initialValue: 'lazy',
 			fieldset: 'options',
 		}),
+		defineField({
+			name: 'url',
+			type: 'string',
+		}),
 	],
 	preview: {
 		select: {
 			image: 'image',
 			responsive: 'responsive',
 			alt: 'alt',
+			loading: 'loading',
 		},
-		prepare: ({ image, responsive, alt }) => ({
+		prepare: ({ image, responsive, alt, loading = 'lazy' }) => ({
 			title: alt,
-			subtitle: responsive && count(responsive, 'responsive image'),
+			subtitle: [
+				responsive && count(responsive, 'responsive image'),
+				loading && `loading="${loading}"`,
+			]
+				.filter(Boolean)
+				.join(', '),
 			media: image,
 		}),
 	},

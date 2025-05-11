@@ -22,7 +22,7 @@ import resolveUrl from '@/lib/resolveUrl'
 const singletonTypes = ['site']
 
 export default defineConfig({
-	title: 'SanityPress',
+	title: 'ADMIN',
 	icon,
 	projectId,
 	dataset,
@@ -49,7 +49,7 @@ export default defineConfig({
 		codeInput(),
 		documentInternationalization({
 			supportedLanguages,
-			schemaTypes: ['page', 'blog.post'],
+			schemaTypes: ['page', 'blog.post', 'product.detail'],
 		}),
 	],
 
@@ -62,7 +62,7 @@ export default defineConfig({
 	},
 	document: {
 		productionUrl: async (prev, { document }) => {
-			if (['page', 'blog.post'].includes(document?._type)) {
+			if (['page', 'blog.post', 'product.detail'].includes(document?._type)) {
 				return resolveUrl(document as Sanity.PageBase, { base: true })
 			}
 			return prev

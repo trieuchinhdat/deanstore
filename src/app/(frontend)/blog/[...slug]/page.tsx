@@ -78,6 +78,19 @@ async function getPost(params: Params) {
 				+ *[_type == 'global-module' && path == '*'].after[]{ ${MODULES_QUERY} }
 			),
 			${TRANSLATIONS_QUERY},
+			"site": *[_type == 'site'][0]{
+				ordersite->{
+					idorder,
+					idordername,
+					idorderphone,
+					idorderemail,
+					idorderaddress,
+					idorderproduct,
+					idorderoption1,
+					idorderoption2,
+					urlordergform
+				}
+			}
 		}`,
 		params: { slug },
 	})

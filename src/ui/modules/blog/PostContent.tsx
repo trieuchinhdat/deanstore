@@ -17,7 +17,7 @@ export default function PostContent({
 	const showTOC = !post.hideTableOfContents || !!post.headings?.length
 
 	return (
-		<article {...moduleProps(props)}>
+		<article {...moduleProps(props)} className="post-template">
 			<header className="section space-y-6 text-center">
 				<h1 className="h1 text-balance">{post.metadata.title}</h1>
 				<div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
@@ -53,6 +53,7 @@ export default function PostContent({
 
 				<Content
 					value={post.body}
+					ordersite={post.ordersite}
 					className={cn(css.body, 'grid max-w-screen-md')}
 				>
 					<hr />

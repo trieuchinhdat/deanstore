@@ -19,6 +19,7 @@ declare global {
 			headerMenu?: Navigation
 			footerMenu?: Navigation
 			social?: Navigation
+			ordersite: OrderSetting
 		}
 
 		interface Navigation extends SanityDocument {
@@ -71,6 +72,18 @@ declare global {
 			slug: { current: string }
 		}
 
+		interface ProductDetail extends PageBase {
+			readonly _type: 'product.detail'
+			body: any
+			modules?: Module[]
+			headings?: { style: string; text: string }[]
+			categories: ProductCategory[]
+			ordersite: any
+		}
+		interface ProductCategory extends SanityDocument {
+			title: string
+			slug: { current: string }
+		}
 		// miscellaneous
 
 		interface Announcement extends SanityDocument {
@@ -165,6 +178,7 @@ declare global {
 			}[]
 			alt?: string
 			loading?: 'lazy' | 'eager'
+			url?: string
 		}
 
 		interface Image extends SanityAssetDocument {
@@ -203,6 +217,28 @@ declare global {
 				hidden?: boolean
 				uid?: string
 			}
+		}
+
+		interface ImageList extends SanityDocument {
+			readonly _type: 'image-list'
+			assets?: Img[]
+		}
+
+		interface OrderSetting extends SanityDocument {
+			readonly _type: 'ordersetting'
+			idordername?: string
+			idorderphone?: string
+			idorderemail?: string
+			idorderaddress?: string
+			idorderproduct?: string
+			idorderoption1?: string
+			idorderoption2?: string
+			idordergform?: string
+		}
+		interface OrderForm extends SanityDocument {
+			readonly _type: 'order-form'
+			option1?: any
+			option2?: any
 		}
 	}
 }

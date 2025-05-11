@@ -46,6 +46,7 @@ export default function RichtextModule({
 
 			<Content
 				value={content}
+				ordersite={content?.ordersite}
 				className={cn(
 					!tableOfContents && (stretch ? 'max-w-screen-lg' : 'max-w-screen-md'),
 				)}

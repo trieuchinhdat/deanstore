@@ -9,6 +9,8 @@ export default defineField({
 		{ type: 'blog-frontpage' },
 		{ type: 'blog-list' },
 		{ type: 'blog-post-content' },
+		{ type: 'product-list' },
+		{ type: 'product-content' },
 		{ type: 'breadcrumbs' },
 		{ type: 'callout' },
 		{ type: 'card-list' },
@@ -29,6 +31,7 @@ export default defineField({
 		{ type: 'tabbed-content' },
 		{ type: 'testimonial-list' },
 		{ type: 'testimonial.featured' },
+		{ type: 'image-list' },
 	],
 	options: {
 		insertMenu: {
@@ -45,6 +48,10 @@ export default defineField({
 					name: 'blog',
 					of: ['blog-frontpage', 'blog-list', 'blog-post-content'],
 				},
+				{
+					name: 'product',
+					of: ['product-content', 'product-list'],
+				},
 				{ name: 'hero', of: ['hero', 'hero.saas', 'hero.split'] },
 				{
 					name: 'lists',
@@ -59,6 +66,7 @@ export default defineField({
 						'stat-list',
 						'step-list',
 						'testimonial-list',
+						'image-list',
 					],
 				},
 				{

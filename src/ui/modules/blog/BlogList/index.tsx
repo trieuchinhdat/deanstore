@@ -70,7 +70,7 @@ export default async function BlogList({
 	return (
 		<section className="section space-y-8" {...moduleProps(props)}>
 			{intro && (
-				<header className="richtext">
+				<header className="richtext text-center">
 					<Pretitle>{pretitle}</Pretitle>
 					<PortableText value={intro} />
 				</header>

@@ -6,6 +6,8 @@ import page from './documents/page'
 import globalModule from './documents/global-module'
 import blogPost from './documents/blog.post'
 import blogCategory from './documents/blog.category'
+import productDetail from './documents/product.detail'
+import productCategory from './documents/product.category'
 import navigation from './documents/navigation'
 import redirect from './documents/redirect'
 
@@ -30,7 +32,9 @@ import moduleOptions from './objects/module-options'
 import accordionList from './modules/accordion-list'
 import blogFrontpage from './modules/blog-frontpage'
 import blogList from './modules/blog-list'
+import productList from './modules/product-list'
 import blogPostContent from './modules/blog-post-content'
+import productContent from './modules/product-content'
 import breadcrumbs from './modules/breadcrumbs'
 import callout from './modules/callout'
 import cardList from './modules/card-list'
@@ -51,6 +55,11 @@ import stepList from './modules/step-list'
 import tabbedContent from './modules/tabbed-content'
 import testimonialFeatured from './modules/testimonial.featured'
 import testimonialList from './modules/testimonial-list'
+import imageList from './modules/image-list'
+import actionBuy from './modules/action-buy'
+import options from './objects/options'
+import orderForm from './modules/order-form'
+import ordersetting from './misc/ordersetting'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -59,6 +68,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	globalModule,
 	blogPost,
 	blogCategory,
+	productDetail,
+	productCategory,
 	navigation,
 
 	// miscellaneous
@@ -69,6 +80,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	pricing,
 	reputation,
 	testimonial,
+	ordersetting,
 
 	// objects
 	cta,
@@ -78,12 +90,15 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	linkList,
 	metadata,
 	moduleOptions,
+	options,
 
 	// modules
 	accordionList,
 	blogFrontpage,
 	blogList,
 	blogPostContent,
+	productList,
+	productContent,
 	breadcrumbs,
 	callout,
 	cardList,
@@ -104,4 +119,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	tabbedContent,
 	testimonialFeatured,
 	testimonialList,
+	imageList,
+	actionBuy,
+	orderForm,
 ]

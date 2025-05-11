@@ -1,4 +1,5 @@
 import { BLOG_DIR } from '@/lib/env'
+import { PRODUCT_DIR } from '@/lib/env'
 
 export default function resolveSlug({
 	_type,
@@ -17,9 +18,10 @@ export default function resolveSlug({
 
 	if (internal) {
 		const segment = _type === 'blog.post' ? `/${BLOG_DIR}/` : '/'
+		const isProduct = _type === 'product.detail' ? `/${PRODUCT_DIR}/` : '/'
 		const path = internal === 'index' ? null : internal
 
-		return [segment, path, params].filter(Boolean).join('')
+		return [segment, isProduct, path, params].filter(Boolean).join('')
 	}
 
 	return undefined

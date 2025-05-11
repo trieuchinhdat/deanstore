@@ -31,7 +31,10 @@ export default function CardList({
 	const isCarousel = stegaClean(layout) === 'carousel'
 
 	return (
-		<section className="section space-y-12" {...moduleProps(props)}>
+		<section
+			className="section section-card-list space-y-12"
+			{...moduleProps(props)}
+		>
 			{(pretitle || intro) && (
 				<header className="richtext text-center">
 					<Pretitle>{pretitle}</Pretitle>

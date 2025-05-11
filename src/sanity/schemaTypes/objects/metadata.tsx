@@ -20,10 +20,10 @@ export default defineType({
 		defineField({
 			name: 'title',
 			type: 'string',
-			validation: (Rule) => Rule.max(60).warning(),
+			validation: (Rule) => Rule.max(80).warning(),
 			components: {
 				input: (props) => (
-					<CharacterCount max={60} {...props}>
+					<CharacterCount max={80} {...props}>
 						<PreviewOG title={props.elementProps.value} />
 					</CharacterCount>
 				),
@@ -32,9 +32,9 @@ export default defineType({
 		defineField({
 			name: 'description',
 			type: 'text',
-			validation: (Rule) => Rule.max(160).warning(),
+			validation: (Rule) => Rule.max(180).warning(),
 			components: {
-				input: (props) => <CharacterCount as="textarea" max={160} {...props} />,
+				input: (props) => <CharacterCount as="textarea" max={180} {...props} />,
 			},
 		}),
 		defineField({

@@ -5,7 +5,7 @@ import { imageBlock } from '../fragments'
 
 export default defineType({
 	name: 'accordion-list',
-	title: 'Accordion list',
+	title: 'Faqs list',
 	type: 'object',
 	icon: TfiLayoutAccordionMerged,
 	groups: [{ name: 'content', default: true }, { name: 'options' }],

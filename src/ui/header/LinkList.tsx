@@ -22,9 +22,9 @@ export default function LinkList({
 				<CgChevronRight className="shrink-0 transition-transform group-open:rotate-90 md:rotate-90" />
 			</summary>
 
-			<ul className="anim-fade-to-b md:frosted-glass md:bg-canvas border-ink/10 top-full left-0 px-3 py-2 max-md:border-s md:absolute md:min-w-max md:rounded md:border md:shadow-md">
+			<ul className="anim-fade-to-b md:bg-canvas top-full left-0 px-3 py-3 max-md:border-s md:absolute md:min-w-max md:rounded-b-xl md:shadow-lg">
 				{links?.map((link, key) => (
-					<li key={key}>
+					<li key={key} className="min-w-[100px] py-0.5">
 						<CTA className="hover:link inline-block py-px" link={link} />
 					</li>
 				))}

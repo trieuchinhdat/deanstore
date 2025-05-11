@@ -2,6 +2,7 @@ import { fetchSanityLive } from './fetch'
 import { groq } from 'next-sanity'
 import errors from '@/lib/errors'
 import { BLOG_DIR } from '@/lib/env'
+import { PRODUCT_DIR } from '@/lib/env'
 
 export const LINK_QUERY = groq`
 	...,
@@ -47,6 +48,7 @@ export const MODULES_QUERY = groq`
 		link{ ${LINK_QUERY} }
 	},
 	_type == 'blog-list' => { filteredCategory-> },
+	_type == 'product-list' => { filteredCategory-> },
 	_type == 'breadcrumbs' => { crumbs[]{ ${LINK_QUERY} } },
 	_type == 'callout' => {
 		content[]{
@@ -127,6 +129,26 @@ export const MODULES_QUERY = groq`
 	},
 	_type == 'testimonial.featured' => { testimonial-> },
 	_type == 'testimonial-list' => { testimonials[]-> },
+	_type == 'image-list' => {
+		assets[]{
+			...,
+			_type == 'img' => { ${ASSET_IMG_QUERY} }
+		}
+	},
+	_type == 'action-buy' => { actionbuy[]-> },
+	_type == 'form-module' => {
+		orderForm {
+			content,
+			urlgform,
+			product,
+			option1[]{
+				title
+			},
+			option2[]{
+				title
+			}
+		}
+	}	
 `
 
 export const GLOBAL_MODULE_PATH_QUERY = groq`
@@ -153,7 +175,18 @@ export async function getSite() {
 				headerMenu->{ ${NAVIGATION_QUERY} },
 				footerMenu->{ ${NAVIGATION_QUERY} },
 				social->{ ${NAVIGATION_QUERY} },
-				'ogimage': ogimage.asset->url
+				'ogimage': ogimage.asset->url,
+				ordersite->{
+					idorder,	
+  				idordername,
+					idorderphone,
+					idorderemail,
+					idorderaddress,
+					idorderproduct,
+					idorderoption1,
+					idorderoption2,
+					urlordergform		
+				},
 			}
 		`,
 	})
@@ -165,20 +198,25 @@ export async function getSite() {
 
 export async function getTranslations() {
 	return await fetchSanityLive<Sanity.Translation[]>({
-		query: groq`*[_type in ['page', 'blog.post'] && defined(language)]{
+		query: groq`*[_type in ['page', 'blog.post', 'product.detail'] && defined(language)]{
 			'slug': '/' + select(
 				_type == 'blog.post' => '${BLOG_DIR}/' + metadata.slug.current,
+				_type == 'product.detail' => '${PRODUCT_DIR}/' + metadata.slug.current,
 				metadata.slug.current != 'index' => metadata.slug.current,
 				''
 			),
 			'translations': *[_type == 'translation.metadata' && references(^._id)].translations[].value->{
 				'slug': '/' + select(
 					_type == 'blog.post' => '${BLOG_DIR}/' + language + '/' + metadata.slug.current,
+					_type == 'product.detail' => '${PRODUCT_DIR}/' + language + '/' + metadata.slug.current,
 					metadata.slug.current != 'index' => language + '/' + metadata.slug.current,
 					language
 				),
 				_type == 'blog.post' => {
 					'slugBlogAlt': '/' + language + '/${BLOG_DIR}/' + metadata.slug.current
+				},
+				_type == 'product.detail' => {
+					'slugProductAlt': '/' + language + '/${PRODUCT_DIR}/' + metadata.slug.current
 				},
 				language
 			}

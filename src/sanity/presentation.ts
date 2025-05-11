@@ -2,7 +2,7 @@
 
 import { defineLocations, presentationTool } from 'sanity/presentation'
 import { groq } from 'next-sanity'
-import { BLOG_DIR } from '@/lib/env'
+import { BLOG_DIR, PRODUCT_DIR } from '@/lib/env'
 
 export const presentation = presentationTool({
 	name: 'editor',
@@ -25,6 +25,10 @@ export const presentation = presentationTool({
 			{
 				route: `/${BLOG_DIR}/:slug`,
 				filter: groq`_type == 'blog.post' && metadata.slug.current == $slug`,
+			},
+			{
+				route: `/${PRODUCT_DIR}/:slug`,
+				filter: groq`_type == 'product.detail' && metadata.slug.current == $slug`,
 			},
 		],
 		locations: {
@@ -82,6 +86,38 @@ export const presentation = presentationTool({
 							href: doc?.slug
 								? `/${BLOG_DIR}?category=${doc.slug}`
 								: `/${BLOG_DIR}`,
+						},
+					],
+				}),
+			}),
+			'product.detail': defineLocations({
+				select: {
+					title: 'metadata.title',
+					slug: 'metadata.slug.current',
+				},
+				resolve: (doc) => ({
+					locations: [
+						{
+							title: doc?.title || 'Untitled',
+							href: doc?.slug
+								? `/${PRODUCT_DIR}/${doc.slug}`
+								: `/${PRODUCT_DIR}`,
+						},
+					],
+				}),
+			}),
+			'product.category': defineLocations({
+				select: {
+					title: 'title',
+					slug: 'slug.current',
+				},
+				resolve: (doc) => ({
+					locations: [
+						{
+							title: doc?.title || 'Untitled',
+							href: doc?.slug
+								? `/${PRODUCT_DIR}?category=${doc.slug}`
+								: `/${PRODUCT_DIR}`,
 						},
 					],
 				}),

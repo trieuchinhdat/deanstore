@@ -56,7 +56,7 @@ export default function PostPreview({
 				/>
 			)}
 
-			<hr />
+			{/* <hr />
 
 			<div className="empty:skeleton flex flex-wrap gap-x-4 text-sm">
 				<Date value={post?.publishDate} />
@@ -64,7 +64,7 @@ export default function PostPreview({
 					className="flex flex-wrap gap-x-2"
 					categories={post?.categories}
 				/>
-			</div>
+			</div> */}
 		</div>
 	)
 }

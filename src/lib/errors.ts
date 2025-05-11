@@ -19,4 +19,9 @@ export default {
 		'Solution: Add a new Global module document in your Sanity Studio with the path "blog/".\n' +
 		'Also add the Blog post content module to display blog post content.\n\n' +
 		'💁‍♂️ https://sanitypress.dev/docs/errors#missing-blog-template',
+	missingProductTemplate:
+		'Missing product template: 👻 Oof, your blog posts are ghosting...\n\n' +
+		'Solution: Add a new Global module document in your Sanity Studio with the path "product/".\n' +
+		'Also add the Product content module to display product content.\n\n' +
+		'💁‍♂️ https://sanitypress.dev/docs/errors#missing-blog-template',
 }

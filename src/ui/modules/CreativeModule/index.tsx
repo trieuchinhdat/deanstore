@@ -42,7 +42,7 @@ export default function CreativeModule({
 	const alignItems = stegaClean(ai)
 
 	return (
-		<section {...moduleProps(props)}>
+		<section className="section-creative" {...moduleProps(props)}>
 			<div className="section space-y-8">
 				{intro && (
 					<header className="richtext mx-auto max-w-xl text-center text-balance">

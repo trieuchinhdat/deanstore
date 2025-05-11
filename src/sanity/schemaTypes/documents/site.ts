@@ -72,6 +72,12 @@ export default defineType({
 			to: [{ type: 'navigation' }],
 			group: 'navigation',
 		}),
+		defineField({
+			name: 'ordersite',
+			type: 'reference',
+			to: [{ type: 'ordersetting' }],
+			group: 'info',
+		}),
 	],
 	preview: {
 		prepare: () => ({

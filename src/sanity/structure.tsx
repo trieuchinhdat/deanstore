@@ -20,6 +20,10 @@ export const structure = structureTool({
 				S.documentTypeListItem('global-module').title('Global modules'),
 				S.divider(),
 
+				S.documentTypeListItem('product.detail').title('Product details'),
+				S.documentTypeListItem('product.category').title('Product categories'),
+				S.divider(),
+
 				S.documentTypeListItem('blog.post').title('Blog posts'),
 				S.documentTypeListItem('blog.category').title('Blog categories'),
 				S.divider(),

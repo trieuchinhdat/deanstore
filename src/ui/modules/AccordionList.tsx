@@ -31,7 +31,9 @@ export default function AccordionList({
 		<section
 			className={cn(
 				'section',
-				layout === 'horizontal' ? 'grid gap-8 md:grid-cols-2' : 'space-y-8',
+				layout === 'horizontal'
+					? 'grid gap-8 md:grid-cols-2'
+					: 'w-full space-y-8 rounded-xl border border-dotted border-[#ddddde] bg-[#f9f9fa] p-4 md:grid-cols-3',
 			)}
 			{...(generateSchema && {
 				itemScope: true,
@@ -44,7 +46,7 @@ export default function AccordionList({
 					'richtext',
 					layout === 'horizontal'
 						? 'md:sticky-below-header self-start [--offset:1rem]'
-						: 'text-center',
+						: 'mb-4 text-start',
 				)}
 			>
 				<Pretitle>{pretitle}</Pretitle>
@@ -54,7 +56,7 @@ export default function AccordionList({
 			<div className="mx-auto w-full max-w-screen-md">
 				{items?.map(({ summary, content, open }, key) => (
 					<details
-						className="accordion border-ink/10 border-b"
+						className="accordion border-b border-dotted border-[#ddddde]"
 						name={connect ? props._key : undefined}
 						open={open}
 						{...(generateSchema && {
@@ -67,6 +69,7 @@ export default function AccordionList({
 						<summary
 							className="py-4 font-bold"
 							{...(generateSchema && { itemProp: 'name' })}
+							key={key + 1}
 						>
 							{summary}
 						</summary>
@@ -78,6 +81,7 @@ export default function AccordionList({
 								itemProp: 'acceptedAnswer',
 								itemType: 'https://schema.org/Answer',
 							})}
+							key={key + 2}
 						>
 							<div className="richtext" itemProp="text">
 								<PortableText

@@ -5,7 +5,6 @@
 	--color-canvas: #fff;
 	--color-ink: #000;
 	--color-accent: #000;
-
 	--max-height-fold: calc(100svh - var(--header-height));
 }
 
@@ -16,9 +15,15 @@
 
 @variant headings (& :is(h1, h2, h3, h4, h5, h6));
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
 @layer base {
 	* {
 		min-width: 0;
+		font-family: Inter, sans-serif;
+		font-optical-sizing: auto;
+		font-style: normal;
 	}
 
 	[hidden] {
@@ -44,13 +49,12 @@
 	}
 
 	@keyframes target {
+
 		0%,
 		50% {
-			background-color: color-mix(
-				in oklab,
-				var(--color-amber-400) 50%,
-				transparent
-			);
+			background-color: color-mix(in oklab,
+					var(--color-amber-400) 50%,
+					transparent);
 		}
 	}
 
@@ -103,21 +107,24 @@
 @utility anim-fade {
 	--x: 0;
 	--y: 0;
-	animation: anim-fade-to var(--default-transition-duration) ease-in-out
-		forwards;
+	animation: anim-fade-to var(--tw-duration, var(--default-transition-duration)) ease-in-out forwards;
 }
+
 @utility anim-fade-to-l {
 	@apply anim-fade;
 	--x: 1rem;
 }
+
 @utility anim-fade-to-r {
 	@apply anim-fade;
 	--x: -1rem;
 }
+
 @utility anim-fade-to-t {
 	@apply anim-fade;
 	--y: 1rem;
 }
+
 @utility anim-fade-to-b {
 	@apply anim-fade;
 	--y: -1rem;
@@ -127,6 +134,11 @@
 	from {
 		opacity: 0;
 		translate: var(--x, 0) var(--y, 0);
+	}
+
+	to {
+		opacity: 1;
+		translate: 0 0;
 	}
 }
 
@@ -139,18 +151,23 @@
 @utility h1 {
 	@apply h-base text-4xl;
 }
+
 @utility h2 {
 	@apply h-base text-3xl;
 }
+
 @utility h3 {
 	@apply h-base text-2xl;
 }
+
 @utility h4 {
 	@apply h-base text-xl;
 }
+
 @utility h5 {
 	@apply h-base text-lg;
 }
+
 @utility h6 {
 	@apply h-base;
 }
@@ -229,23 +246,19 @@
 
 @utility overflow-fade {
 	--offset: 4rem;
-	mask: linear-gradient(
-		to right,
-		transparent,
-		black var(--offset),
-		black calc(100% - var(--offset)),
-		transparent
-	);
+	mask: linear-gradient(to right,
+			transparent,
+			black var(--offset),
+			black calc(100% - var(--offset)),
+			transparent);
 }
 
 @utility overflow-fade-r {
 	--offset: 4rem;
-	mask: linear-gradient(
-		to right,
-		black 50%,
-		black calc(100% - var(--offset)),
-		transparent
-	);
+	mask: linear-gradient(to right,
+			black 50%,
+			black calc(100% - var(--offset)),
+			transparent);
 }
 
 /* layout */
@@ -291,7 +304,7 @@
 		list-style: revert;
 		padding-left: 1.5em;
 
-		& > li > ol {
+		&>li>ol {
 			list-style: lower-alpha;
 		}
 	}
@@ -300,7 +313,7 @@
 		@apply link;
 	}
 
-	& :not(pre) > code {
+	& :not(pre)>code {
 		@apply bg-ink/10 rounded px-1;
 	}
 
@@ -347,9 +360,11 @@
 @utility skeleton {
 	@apply bg-ink/3 h-[1lh];
 }
+
 @utility skeleton-2 {
 	@apply bg-ink/3 h-[2lh];
 }
+
 @utility skeleton-3 {
 	@apply bg-ink/3 h-[3lh];
 }
@@ -387,7 +402,66 @@
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 
-	& > * {
+	&>* {
 		scroll-snap-align: center;
+	}
+}
+
+.btn-action-buy {
+	text-decoration-line: none;
+	min-width: 250px;
+	text-align: center;
+}
+
+.product-template p a,
+.post-template p a {
+	color: #00608c;
+}
+
+.product-template .section-image-list,
+.product-template .section-price,
+.product-template .section-card-list,
+.product-template .section-creative,
+.product-template .section-herosaas,
+.product-template .section-herosplit,
+.post-template .section-image-list,
+.post-template .section-price,
+.post-template .section-card-list,
+.post-template .section-creative,
+.post-template .section-herosaas,
+.post-template .section-herosplit {
+	width: 100%;
+	padding: 0;
+}
+
+.product-template section {
+	margin-bottom: 60px;
+}
+
+@media (width <=48rem) {
+	.product-template section {
+		margin-bottom: 40px;
+	}
+}
+
+@media (width <=48rem) {
+
+	.product-template h1,
+	.post-template h1 {
+		font-size: 1.5rem;
+	}
+
+	.product-template h2,
+	.product-template h3,
+	.post-template h2,
+	.post-template h3 {
+		font-size: 1.25rem;
+	}
+
+	.product-template h2,
+	.product-template h3,
+	.post-template h2,
+	.post-template h3 {
+		font-size: 1.25rem;
 	}
 }
