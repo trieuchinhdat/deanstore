@@ -83,7 +83,12 @@ export default function AccordionList({
 							})}
 							key={key + 2}
 						>
-							<div className="richtext" itemProp="text">
+							<div
+								className="richtext"
+								{...(generateSchema && {
+									itemProp: 'text',
+								})}
+							>
 								<PortableText
 									value={content}
 									components={{

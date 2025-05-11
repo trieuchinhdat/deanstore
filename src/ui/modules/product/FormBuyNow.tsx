@@ -162,6 +162,8 @@ export default function FormBuyNow({
 								message: 'Email không hợp lệ',
 							},
 						})}
+						className="w-full rounded-xl border border-[#fff] bg-white p-2"
+						placeholder="Nhập email"
 					/>
 					{errors.email?.message && (
 						<p className="text-sm text-red-500">
