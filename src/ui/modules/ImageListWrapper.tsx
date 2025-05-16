@@ -5,10 +5,29 @@ import { cn } from '@/lib/utils'
 export default function ImageListWrapper({
 	assets,
 	layout,
+	columnsdesktop,
+	columnsmobile,
+	autoplay,
+	lightbox,
 }: {
 	assets?: Sanity.Img[]
 	layout?: 'grid' | 'carousel'
+	columnsdesktop?: number
+	columnsmobile?: number
+	autoplay?: boolean
+	lightbox?: boolean
 }) {
+	const isAutoplayEnabled = autoplay ?? false
+	const isLightboxEnabled = lightbox ?? false
 	if (!assets?.length) return null
-	return <ImageList assets={assets} layout={layout} />
+	return (
+		<ImageList
+			assets={assets}
+			layout={layout}
+			columnsdesktop={columnsdesktop}
+			columnsmobile={columnsmobile}
+			autoplay={isAutoplayEnabled}
+			lightbox={isLightboxEnabled}
+		/>
+	)
 }

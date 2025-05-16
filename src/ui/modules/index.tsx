@@ -24,7 +24,6 @@ import TestimonialFeatured from './TestimonialFeatured'
 import ImageList from './ImageListWrapper'
 import ActionBuy from './ActionBuy'
 import OrderForm from './product/OrderForm'
-import PricingList from './PricingList'
 
 import dynamic from 'next/dynamic'
 import { createDataAttribute } from 'next-sanity'

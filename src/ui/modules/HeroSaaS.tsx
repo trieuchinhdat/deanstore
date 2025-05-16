@@ -64,7 +64,7 @@ export default function HeroSaaS({
 								img={asset}
 								pictureProps={{
 									className: cn(
-										'anim-fade-to-t w-full block [animation-duration:1s]',
+										'anim-fade-to-t w-full rounded-xl overflow-hidden block [animation-duration:1s]',
 										assetFaded &&
 											'[mask:linear-gradient(to_top,transparent,#000_50%)]',
 									),

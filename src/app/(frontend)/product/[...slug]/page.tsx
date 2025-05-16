@@ -90,7 +90,9 @@ async function getProduct(params: Params) {
 					idorderproduct,
 					idorderoption1,
 					idorderoption2,
-					urlordergform
+					urlordergform,
+					idnewletteremail,
+					urlnewlettergform
 				}
 			}
 		}`,

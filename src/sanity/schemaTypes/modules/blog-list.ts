@@ -71,6 +71,13 @@ export default defineType({
 			to: [{ type: 'blog.category' }],
 			group: 'filtering',
 		}),
+		defineField({
+			name: 'backgroundColor',
+			title: 'Background color',
+			description: 'If not set, the default background color will be used.',
+			type: 'string',
+			group: 'options',
+		}),
 	],
 	preview: {
 		select: {

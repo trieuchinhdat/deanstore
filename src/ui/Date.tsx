@@ -7,5 +7,9 @@ export default function ({ value }: { value?: string }) {
 		day: 'numeric',
 	})
 
-	return <time dateTime={value}>{formatted}</time>
+	return (
+		<span>
+			Published <time dateTime={value}>{formatted}</time>
+		</span>
+	)
 }

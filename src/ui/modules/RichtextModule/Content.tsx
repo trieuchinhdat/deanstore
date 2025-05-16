@@ -16,14 +16,17 @@ import CreativeModule from '../CreativeModule'
 import Hero from '../Hero'
 import HeroSaaS from '../HeroSaaS'
 import HeroSplit from '../HeroSplit'
+import FlagList from '../FlagList'
+import StepList from '../StepList'
+import TestimonialFeatured from '../TestimonialFeatured'
+import TabbedContent from '../TabbedContent'
 
 export default function Content({
 	value,
 	title,
-	ordersite,
 	className,
 	children,
-}: { value: any; ordersite: any } & React.ComponentProps<'div'>) {
+}: { value: any } & React.ComponentProps<'div'>) {
 	return (
 		<div
 			className={cn(
@@ -42,27 +45,36 @@ export default function Content({
 						h6: (node) => <AnchoredHeading as="h6" {...node} />,
 					},
 					types: {
+						// Media
 						image: Image,
+						'image-list': ({ value }) => <ImageListWrapper {...value} />,
+
+						// Content blocks
 						admonition: Admonition,
 						code: Code,
-						'image-list': ({ value }) => <ImageListWrapper {...value} />,
-						'action-buy': ({ value }) => <ActionBuy {...value} />,
-						'order-form': ({ value }) => (
-							<OrderForm title={title} ordersite={ordersite} {...value} />
-						),
 						'accordion-list': ({ value }) => <AccordionList {...value} />,
 						'card-list': ({ value }) => <CardList {...value} />,
 						'creative-module': ({ value }) => <CreativeModule {...value} />,
-						hero: ({ value }) => <Hero {...value} />,
-						'hero.saas': ({ value }) => <HeroSaaS {...value} />,
-						'hero.split': ({ value }) => <HeroSplit {...value} />,
-						pricing: ({ value }) => <PricingProduct {...value} />,
 						'custom-html': ({ value }) => (
 							<CustomHTML
 								className="has-[table]:md:[grid-column:bleed] has-[table]:md:mx-auto"
 								{...value}
 							/>
 						),
+						'flag-list': ({ value }) => <FlagList {...value} />,
+						'step-list': ({ value }) => <StepList {...value} />,
+						'testimonial.featured': ({ value }) => (
+							<TestimonialFeatured {...value} />
+						),
+						'tabbed-content': ({ value }) => <TabbedContent {...value} />,
+						// Hero types
+						hero: ({ value }) => <Hero {...value} />,
+						'hero.saas': ({ value }) => <HeroSaaS {...value} />,
+						'hero.split': ({ value }) => <HeroSplit {...value} />,
+						// Action blocks
+						'action-buy': ({ value }) => <ActionBuy {...value} />,
+						'order-form': ({ value }) => <OrderForm title={title} {...value} />,
+						pricing: ({ value }) => <PricingProduct {...value} />,
 					},
 				}}
 			/>

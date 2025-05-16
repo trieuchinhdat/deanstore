@@ -13,8 +13,8 @@ export default function ProductPreview({
 	if (!product && !skeleton) return null
 
 	return (
-		<div className="group relative isolate flex h-full flex-col space-y-2">
-			<figure className="bg-ink/3 relative aspect-square overflow-hidden transition-all">
+		<div className="group border-global-style relative isolate flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all hover:shadow-lg">
+			<figure className="bg-ink/3 relative aspect-square overflow-hidden transition-all group-hover:scale-105 group-hover:brightness-110">
 				<Img
 					className="h-full w-full object-cover transition-all group-hover:brightness-110"
 					image={product?.metadata.image}
@@ -22,20 +22,21 @@ export default function ProductPreview({
 					alt={product?.metadata.title}
 				/>
 			</figure>
-
-			<div className={cn('h4', skeleton && 'skeleton-2')}>
-				<Link
-					className="group-hover:underline"
-					href={resolveUrl(product, { base: false })}
-				>
-					<span className="absolute inset-0" />
-					{product?.metadata.title}
-				</Link>
-			</div>
-			<div className="grow">
-				<p className="line-clamp-3 text-sm empty:h-[3lh]">
-					{product?.metadata.description}
-				</p>
+			<div className="p-4 sm:p-6">
+				<div className={cn('h4 mb-2', skeleton && 'skeleton-2')}>
+					<Link
+						className="link-global text-lg sm:text-xl"
+						href={resolveUrl(product, { base: false })}
+					>
+						<span className="absolute inset-0" />
+						{product?.metadata.title}
+					</Link>
+				</div>
+				<div className="grow">
+					<p className="line-clamp-3 text-sm">
+						{product?.metadata.description}
+					</p>
+				</div>
 			</div>
 		</div>
 	)

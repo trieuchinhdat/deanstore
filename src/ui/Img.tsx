@@ -112,3 +112,4 @@ function generateSrc(
 		height: h_calc || h_orig,
 	}
 }
+export { generateSrc }

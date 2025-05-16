@@ -130,11 +130,11 @@ export default function FormBuyNow({
 						{...register('product')}
 						defaultValue={product}
 						readOnly
-						className="hidden w-full rounded-xl border border-[#fff] bg-gray-100 p-2 font-semibold text-gray-700"
+						className="hidden w-full rounded-xl bg-gray-100 p-2 font-semibold text-gray-700"
 					/>
 					<input
 						{...register('name', { required: 'Vui lòng nhập họ tên' })}
-						className="w-full rounded-xl border border-[#fff] bg-white p-2"
+						className="border-global-style w-full rounded-xl bg-white p-4 max-md:p-2"
 						placeholder="Nhập họ và tên"
 					/>
 					{errors.name && (
@@ -145,7 +145,7 @@ export default function FormBuyNow({
 				<div>
 					<input
 						{...register('phone', { required: 'Vui lòng nhập số điện thoại' })}
-						className="w-full rounded-xl border border-[#fff] bg-white p-2"
+						className="border-global-style w-full rounded-xl bg-white p-4 max-md:p-2"
 						placeholder="Nhập số điện thoại"
 					/>
 					{errors.phone && (
@@ -162,7 +162,7 @@ export default function FormBuyNow({
 								message: 'Email không hợp lệ',
 							},
 						})}
-						className="w-full rounded-xl border border-[#fff] bg-white p-2"
+						className="border-global-style w-full rounded-xl bg-white p-4 max-md:p-2"
 						placeholder="Nhập email"
 					/>
 					{errors.email?.message && (
@@ -175,7 +175,7 @@ export default function FormBuyNow({
 				<div>
 					<textarea
 						{...register('address', { required: 'Vui lòng nhập địa chỉ' })}
-						className="w-full rounded-xl border border-[#fff] bg-white p-2"
+						className="border-global-style w-full rounded-xl bg-white p-4 max-md:p-2"
 						placeholder="Nhập địa chỉ"
 					/>
 					{errors.address && (

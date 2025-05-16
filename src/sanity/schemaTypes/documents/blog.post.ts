@@ -30,14 +30,16 @@ export default defineType({
 				{ type: 'custom-html' },
 				{ type: 'image-list' },
 				{ type: 'action-buy' },
-				{ type: 'order-form' },
 				{ type: 'accordion-list' },
-				{ type: 'pricing' },
 				{ type: 'card-list' },
 				{ type: 'creative-module' },
 				{ type: 'hero' },
 				{ type: 'hero.saas' },
 				{ type: 'hero.split' },
+				{ type: 'flag-list' },
+				{ type: 'step-list' },
+				{ type: 'testimonial' },
+				{ type: 'tabbed-content' },
 			],
 			group: 'content',
 		}),
@@ -80,6 +82,34 @@ export default defineType({
 			type: 'boolean',
 			group: 'options',
 			initialValue: false,
+		}),
+		defineField({
+			name: 'rating',
+			title: 'Rating',
+			type: 'number',
+			group: 'content',
+			validation: (Rule) =>
+				Rule.min(1)
+					.max(5)
+					.custom((value) => {
+						if (value === undefined) return true // Cho phép bỏ trống
+						const allowed = [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
+						return allowed.includes(value) || '1-5★'
+					}),
+			options: {
+				list: [
+					{ title: '1 ★', value: 1 },
+					{ title: '1.5 ★', value: 1.5 },
+					{ title: '2 ★', value: 2 },
+					{ title: '2.5 ★', value: 2.5 },
+					{ title: '3 ★', value: 3 },
+					{ title: '3.5 ★', value: 3.5 },
+					{ title: '4 ★', value: 4 },
+					{ title: '4.5 ★', value: 4.5 },
+					{ title: '5 ★', value: 5 },
+				],
+				layout: 'dropdown',
+			},
 		}),
 		defineField({
 			name: 'metadata',

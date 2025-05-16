@@ -28,7 +28,7 @@ export default function AnnouncementClient({ announcements }: Props) {
 			<Scheduler start={start} end={end}>
 				<aside
 					id="announcement"
-					className="animate-slide-down flex items-center justify-center gap-x-4 p-2 text-center text-balance max-md:text-sm md:gap-x-6"
+					className="animate-slide-down bg-accent text-canvas flex items-center justify-center gap-x-4 p-2 text-center text-balance max-md:text-sm md:gap-x-6"
 				>
 					<div className="anim-fade-to-r [&_a]:link">
 						<PortableText value={content} />

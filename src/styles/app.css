@@ -4,7 +4,7 @@
 @theme {
 	--color-canvas: #fff;
 	--color-ink: #000;
-	--color-accent: #000;
+	--color-accent: #d09b68;
 	--max-height-fold: calc(100svh - var(--header-height));
 }
 
@@ -407,10 +407,53 @@
 	}
 }
 
+/* STYLE GLOBAL STORE */
+.group-global {
+	border: 1px solid var(--color-accent);
+}
+
+.border-global-style {
+	border: 0.5px solid var(--color-accent);
+}
+
+.btn-global-style {
+	background: var(--color-accent);
+}
+
 .btn-action-buy {
 	text-decoration-line: none;
 	min-width: 250px;
 	text-align: center;
+	background-color: var(--color-accent);
+}
+
+.link-global:hover {
+	color: var(--color-accent);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	color: #fff;
+	font-size: 1.5rem !important;
+}
+
+@media (width <=48rem) {
+
+	.swiper-button-prev::after,
+	.swiper-button-next::after {
+		font-size: 1.25rem !important;
+	}
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background: #fff;
+}
+
+@media (width <=48rem) {
+	.section-form h2 {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
 }
 
 .product-template p a,
@@ -424,12 +467,14 @@
 .product-template .section-creative,
 .product-template .section-herosaas,
 .product-template .section-herosplit,
+.product-template .section-accordionlist,
 .post-template .section-image-list,
 .post-template .section-price,
 .post-template .section-card-list,
 .post-template .section-creative,
 .post-template .section-herosaas,
-.post-template .section-herosplit {
+.post-template .section-herosplit,
+.post-template .section-accordionlist {
 	width: 100%;
 	padding: 0;
 }

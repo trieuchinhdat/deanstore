@@ -185,7 +185,9 @@ export async function getSite() {
 					idorderproduct,
 					idorderoption1,
 					idorderoption2,
-					urlordergform		
+					urlordergform,
+					idnewletteremail,
+					urlnewlettergform		
 				},
 			}
 		`,

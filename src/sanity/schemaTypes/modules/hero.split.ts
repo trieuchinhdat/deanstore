@@ -8,7 +8,11 @@ export default defineType({
 	title: 'Hero (split)',
 	icon: TfiLayoutMediaLeft,
 	type: 'object',
-	groups: [{ name: 'content', default: true }, { name: 'asset' }],
+	groups: [
+		{ name: 'content', default: true },
+		{ name: 'asset' },
+		{ name: 'options' },
+	],
 	fields: [
 		defineField({
 			name: 'pretitle',
@@ -51,14 +55,21 @@ export default defineType({
 			type: 'boolean',
 			description: 'Display the asset to the right of the content on desktop',
 			initialValue: false,
-			group: 'asset',
+			group: 'options',
 		}),
 		defineField({
 			name: 'assetBelowContent',
 			type: 'boolean',
 			description: 'Display the asset below the content on mobile',
 			initialValue: false,
-			group: 'asset',
+			group: 'options',
+		}),
+		defineField({
+			name: 'backgroundColor',
+			title: 'Background color',
+			description: 'If not set, the default background color will be used.',
+			type: 'string',
+			group: 'options',
 		}),
 	],
 	preview: {

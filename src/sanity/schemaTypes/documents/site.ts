@@ -74,6 +74,7 @@ export default defineType({
 		}),
 		defineField({
 			name: 'ordersite',
+			title: 'Form settings',
 			type: 'reference',
 			to: [{ type: 'ordersetting' }],
 			group: 'info',

@@ -58,7 +58,7 @@ export default function ActionBuy({
 						href={url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="btn-action-buy inline-block rounded bg-[#b4fd8c] px-6 py-3 text-[#121218] shadow transition duration-300 hover:bg-[#121218] hover:text-[#b4fd8c]"
+						className="btn-action-buy inline-block rounded px-6 py-3 shadow transition duration-300"
 					>
 						{title}
 					</Link>

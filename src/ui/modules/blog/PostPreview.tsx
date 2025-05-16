@@ -16,7 +16,7 @@ export default function PostPreview({
 	if (!post && !skeleton) return null
 
 	return (
-		<div className="group relative isolate flex h-full flex-col space-y-2">
+		<div className="group border-global-style relative isolate flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-sm transition-all hover:shadow-lg dark:border-[#f1d1b1]/[0.2]">
 			<figure className="bg-ink/3 relative aspect-video overflow-hidden">
 				<Img
 					className="aspect-video w-full object-cover transition-all group-hover:scale-105 group-hover:brightness-110"
@@ -32,20 +32,19 @@ export default function PostPreview({
 				)}
 			</figure>
 
-			<div className={cn('h4', skeleton && 'skeleton-2')}>
-				<Link
-					className="group-hover:underline"
-					href={resolveUrl(post, { base: false })}
-				>
-					<span className="absolute inset-0" />
-					{post?.metadata.title}
-				</Link>
-			</div>
-
-			<div className="grow">
-				<p className="line-clamp-3 text-sm empty:h-[3lh]">
-					{post?.metadata.description}
-				</p>
+			<div className="p-4 sm:p-6">
+				<div className={cn('h4 mb-2', skeleton && 'skeleton-2')}>
+					<Link
+						className="link-global line-clamp-3 text-lg sm:text-xl"
+						href={resolveUrl(post, { base: false })}
+					>
+						<span className="absolute inset-0" />
+						{post?.metadata.title}
+					</Link>
+				</div>
+				<div className="grow">
+					<p className="line-clamp-3 text-sm">{post?.metadata.description}</p>
+				</div>
 			</div>
 
 			{(post?.authors?.length || skeleton) && (

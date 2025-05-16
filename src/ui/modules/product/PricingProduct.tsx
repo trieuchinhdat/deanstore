@@ -37,7 +37,7 @@ export default function PricingProduct({
 				{price?.base !== undefined && (
 					<div className="flex flex-wrap items-end gap-x-1">
 						{price.base !== undefined && !isNaN(price.base) && (
-							<b className="h1">{formatPrice(price.base)}</b>
+							<b className="h1 text-red-500">{formatPrice(price.base)}</b>
 						)}
 						{price.suffix && (
 							<span className={cn(isNaN(price.base) && 'h1')}>

@@ -53,7 +53,6 @@ export default function PostContent({
 
 				<Content
 					value={post.body}
-					ordersite={post.ordersite}
 					className={cn(css.body, 'grid max-w-screen-md')}
 				>
 					<hr />

@@ -70,10 +70,10 @@ export default function TableOfContents({
 							className={cn(
 								'block py-1 hover:underline',
 								stegaClean(style) == 'h2' && 'ps-4',
-								stegaClean(style) == 'h3' && 'ps-6',
-								stegaClean(style) == 'h4' && 'ps-8',
-								stegaClean(style) == 'h5' && 'ps-10',
-								stegaClean(style) == 'h6' && 'ps-12',
+								stegaClean(style) == 'h3' && 'ps-8',
+								stegaClean(style) == 'h4' && 'ps-10',
+								stegaClean(style) == 'h5' && 'ps-12',
+								stegaClean(style) == 'h6' && 'ps-14',
 							)}
 							href={`#${slug(text)}`}
 						>

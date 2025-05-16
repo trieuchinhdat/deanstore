@@ -222,6 +222,9 @@ declare global {
 		interface ImageList extends SanityDocument {
 			readonly _type: 'image-list'
 			assets?: Img[]
+			layout?: 'grid' | 'carousel' | 'product'
+			columnsdesktop?: number
+			columnsmobile?: number
 		}
 
 		interface OrderSetting extends SanityDocument {

@@ -30,7 +30,7 @@ export default defineConfig({
 
 	plugins: [
 		structure,
-		presentation,
+		// presentation,
 		dashboardTool({
 			name: 'deployment',
 			title: 'Deployment',
@@ -42,7 +42,7 @@ export default defineConfig({
 			widgets: [
 				projectInfoWidget(),
 				projectUsersWidget(),
-				infoWidget({ version: pkg.version }),
+				// infoWidget({ version: pkg.version }),
 			],
 		}),
 		visionTool({ defaultApiVersion: apiVersion }),

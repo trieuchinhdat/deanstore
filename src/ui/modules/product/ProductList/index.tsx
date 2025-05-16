@@ -19,6 +19,7 @@ export default async function ProductList({
 	limit,
 	displayFilters,
 	filteredCategory,
+	backgroundColor,
 	...props
 }: Partial<{
 	pretitle: string
@@ -27,6 +28,7 @@ export default async function ProductList({
 	limit: number
 	displayFilters: boolean
 	filteredCategory: Sanity.ProductCategory
+	backgroundColor: string
 }> &
 	Sanity.Module) {
 	const lang = (await cookies()).get(langCookieName)?.value ?? DEFAULT_LANG
@@ -57,36 +59,41 @@ export default async function ProductList({
 	})
 
 	const listClassName = cn(
-		'items-stretch gap-x-8 gap-y-12',
+		'items-stretch gap-8 max-md:gap-4',
 		stegaClean(layout) === 'grid'
 			? 'grid md:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]'
 			: 'carousel max-xl:full-bleed md:overflow-fade-r pb-4 [--size:320px] max-xl:px-4',
 	)
 
 	return (
-		<section className="section space-y-8" {...moduleProps(props)}>
-			{intro && (
-				<header className="richtext text-center">
-					<Pretitle>{pretitle}</Pretitle>
-					<PortableText value={intro} />
-				</header>
-			)}
+		<section
+			{...moduleProps(props)}
+			style={{ backgroundColor: backgroundColor || '#ffffff' }}
+		>
+			<div className="section space-y-8">
+				{intro && (
+					<header className="richtext text-center">
+						<Pretitle>{pretitle}</Pretitle>
+						<PortableText value={intro} />
+					</header>
+				)}
 
-			{displayFilters && !filteredCategory && <FilterList />}
+				{displayFilters && !filteredCategory && <FilterList />}
 
-			<Suspense
-				fallback={
-					<ul className={listClassName}>
-						{Array.from({ length: limit ?? 6 }).map((_, i) => (
-							<li key={i}>
-								<ProductPreview skeleton />
-							</li>
-						))}
-					</ul>
-				}
-			>
-				<List productlist={productlist} className={listClassName} />
-			</Suspense>
+				<Suspense
+					fallback={
+						<ul className={listClassName}>
+							{Array.from({ length: limit ?? 6 }).map((_, i) => (
+								<li key={i}>
+									<ProductPreview skeleton />
+								</li>
+							))}
+						</ul>
+					}
+				>
+					<List productlist={productlist} className={listClassName} />
+				</Suspense>
+			</div>
 		</section>
 	)
 }

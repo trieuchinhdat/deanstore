@@ -65,6 +65,12 @@ async function getPage(params: Params) {
 				'ogimage': image.asset->url + '?w=1200'
 			},
 			${TRANSLATIONS_QUERY},
+			"site": *[_type == 'site'][0]{
+				ordersite->{
+					idnewletteremail,
+					urlnewlettergform
+				}
+			}
 		}`,
 		params: { slug },
 	})

@@ -20,7 +20,7 @@ export default async function Menu() {
 							<CTA
 								className={cn(
 									parentClassName,
-									'hover:link md:grid md:place-content-center',
+									'link-global md:grid md:place-content-center',
 								)}
 								link={item}
 								key={key}

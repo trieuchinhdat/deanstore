@@ -101,6 +101,13 @@ export default defineType({
 			initialValue: false,
 			group: 'options',
 		}),
+		defineField({
+			name: 'backgroundColor',
+			title: 'Background color',
+			description: 'If not set, the default background color will be used.',
+			type: 'string',
+			group: 'options',
+		}),
 	],
 	preview: {
 		select: {

@@ -20,8 +20,7 @@ export default function ProductContent({
 				<Content
 					value={product.body}
 					title={product.metadata.title}
-					ordersite={product.site.ordersite}
-					className={cn(css.body, 'grid max-w-screen-md')}
+					className={cn(css.body, 'grid max-w-screen-lg')}
 				>
 					<hr />
 				</Content>

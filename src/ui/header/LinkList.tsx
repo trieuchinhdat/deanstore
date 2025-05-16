@@ -25,7 +25,7 @@ export default function LinkList({
 			<ul className="anim-fade-to-b md:bg-canvas top-full left-0 px-3 py-3 max-md:border-s md:absolute md:min-w-max md:rounded-b-xl md:shadow-lg">
 				{links?.map((link, key) => (
 					<li key={key} className="min-w-[100px] py-0.5">
-						<CTA className="hover:link inline-block py-px" link={link} />
+						<CTA className="link-global inline-block py-px" link={link} />
 					</li>
 				))}
 			</ul>
