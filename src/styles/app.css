@@ -5,6 +5,8 @@
 	--color-canvas: #fff;
 	--color-ink: #000;
 	--color-accent: #d09b68;
+	--color-bg-btn: #d09b68;
+	--color-text-btn: #fff;
 	--max-height-fold: calc(100svh - var(--header-height));
 }
 
@@ -424,7 +426,8 @@
 	text-decoration-line: none;
 	min-width: 250px;
 	text-align: center;
-	background-color: var(--color-accent);
+	background-color: var(--color-bg-btn);
+	color: var(--color-text-btn);
 }
 
 .link-global:hover {

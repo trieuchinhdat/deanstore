@@ -1,8 +1,8 @@
 {
-	"name": "sanitypress",
+	"name": "deanstore",
 	"version": "7.1.11",
 	"description": "An impressive Sanity.io starter template with Next.js 15 and Tailwind 4",
-	"author": "nuotsu <mitchell@nuotsu.dev> (https://nuotsu.dev)",
+	"author": "dean",
 	"license": "ISC",
 	"scripts": {
 		"dev": "next dev",
