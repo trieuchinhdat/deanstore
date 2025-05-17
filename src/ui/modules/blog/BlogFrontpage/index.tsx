@@ -15,10 +15,12 @@ export default async function BlogFrontpage({
 	mainPost,
 	showFeaturedPostsFirst,
 	itemsPerPage,
+	backgroundColor,
 }: Partial<{
 	mainPost: 'recent' | 'featured'
 	showFeaturedPostsFirst: boolean
 	itemsPerPage: number
+	backgroundColor: string
 }>) {
 	const lang = (await cookies()).get(langCookieName)?.value ?? DEFAULT_LANG
 
@@ -47,29 +49,31 @@ export default async function BlogFrontpage({
 		stegaClean(mainPost) === 'featured' ? sortFeaturedPosts(posts) : posts
 
 	return (
-		<section className="section space-y-12">
-			<PostPreviewLarge post={firstPost} />
+		<section style={{ backgroundColor: backgroundColor || '#ffffff' }}>
+			<div className="section space-y-12">
+				<PostPreviewLarge post={firstPost} />
 
-			<hr />
+				<hr />
 
-			<FilterList />
+				<FilterList />
 
-			<Suspense
-				fallback={
-					<ul className="grid gap-x-8 gap-y-12 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
-						{Array.from({ length: itemsPerPage ?? 6 }).map((_, i) => (
-							<li key={i}>
-								<PostPreview skeleton />
-							</li>
-						))}
-					</ul>
-				}
-			>
-				<Paginated
-					posts={sortFeaturedPosts(otherPosts, showFeaturedPostsFirst)}
-					itemsPerPage={itemsPerPage}
-				/>
-			</Suspense>
+				<Suspense
+					fallback={
+						<ul className="grid gap-x-8 gap-y-12 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
+							{Array.from({ length: itemsPerPage ?? 6 }).map((_, i) => (
+								<li key={i}>
+									<PostPreview skeleton />
+								</li>
+							))}
+						</ul>
+					}
+				>
+					<Paginated
+						posts={sortFeaturedPosts(otherPosts, showFeaturedPostsFirst)}
+						itemsPerPage={itemsPerPage}
+					/>
+				</Suspense>
+			</div>
 		</section>
 	)
 }

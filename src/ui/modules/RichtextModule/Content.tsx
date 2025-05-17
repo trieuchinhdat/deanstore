@@ -63,9 +63,6 @@ export default function Content({
 						),
 						'flag-list': ({ value }) => <FlagList {...value} />,
 						'step-list': ({ value }) => <StepList {...value} />,
-						'testimonial.featured': ({ value }) => (
-							<TestimonialFeatured {...value} />
-						),
 						'tabbed-content': ({ value }) => <TabbedContent {...value} />,
 						// Hero types
 						hero: ({ value }) => <Hero {...value} />,

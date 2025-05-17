@@ -40,7 +40,6 @@ export default defineType({
 				{ type: 'hero.split' },
 				{ type: 'flag-list' },
 				{ type: 'step-list' },
-				{ type: 'testimonial' },
 				{ type: 'tabbed-content' },
 			],
 			group: 'content',
