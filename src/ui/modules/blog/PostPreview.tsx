@@ -47,13 +47,13 @@ export default function PostPreview({
 				</div>
 			</div>
 
-			{(post?.authors?.length || skeleton) && (
+			{/* {(post?.authors?.length || skeleton) && (
 				<Authors
 					className="flex flex-wrap items-center gap-4 text-sm"
 					authors={post?.authors}
 					skeleton={skeleton}
 				/>
-			)}
+			)} */}
 
 			{/* <hr />
 

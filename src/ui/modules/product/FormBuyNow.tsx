@@ -229,7 +229,7 @@ export default function FormBuyNow({
 
 				<button
 					type="submit"
-					className="btn-action-buy inline-block rounded-xl bg-[#121218] px-6 py-3 font-bold text-[#b4fd8c] uppercase shadow transition duration-300"
+					className="action rounded-xl px-6 py-3 text-base font-bold whitespace-nowrap uppercase shadow transition duration-300"
 				>
 					Đặt hàng ngay
 				</button>

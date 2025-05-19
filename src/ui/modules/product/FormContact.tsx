@@ -81,7 +81,7 @@ export default function FormContact({ ordersite }: Props) {
 
 				<button
 					type="submit"
-					className="rounded-xl bg-[#121218] px-6 py-3 text-base font-bold whitespace-nowrap text-[#b4fd8c] uppercase shadow transition duration-300"
+					className="action rounded-xl px-6 py-3 text-base font-bold whitespace-nowrap uppercase shadow transition duration-300"
 				>
 					Submit
 				</button>

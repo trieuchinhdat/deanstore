@@ -25,7 +25,7 @@ export default async function OrderForm({
 		<section
 			id="order-form-gform"
 			style={{ backgroundColor: backgroundColor || '#ffffff' }}
-			className="richtext"
+			className="richtext overflow-hidden rounded-xl"
 		>
 			{layout === 'form order' && (
 				<div className="section section-form group-global grid gap-8 rounded-xl p-8 max-md:p-4 md:grid-cols-1">

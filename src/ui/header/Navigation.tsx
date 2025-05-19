@@ -1,16 +1,13 @@
 import { getSite } from '@/sanity/lib/queries'
 import CTA from '@/ui/CTA'
 import LinkList from './LinkList'
-import { cn } from '@/lib/utils'
 
 export default async function Menu() {
 	const { headerMenu } = await getSite()
 
-	const parentClassName = cn('md:px-3 md:text-center md:leading-tight')
-
 	return (
 		<nav
-			className="max-md:anim-fade-to-r max-md:header-closed:hidden flex gap-y-2 [grid-area:nav] max-md:my-4 max-md:flex-col md:justify-center"
+			className="max-md:anim-fade-to-r max-md:header-closed:hidden flex gap-x-6 gap-y-2 [grid-area:nav] max-md:my-4 max-md:flex-col md:justify-center"
 			role="navigation"
 		>
 			{headerMenu?.items?.map((item, key) => {
@@ -18,23 +15,14 @@ export default async function Menu() {
 					case 'link':
 						return (
 							<CTA
-								className={cn(
-									parentClassName,
-									'link-global md:grid md:place-content-center',
-								)}
+								className="hover:link md:grid md:place-content-center md:text-center md:leading-tight"
 								link={item}
 								key={key}
 							/>
 						)
 
 					case 'link.list':
-						return (
-							<LinkList
-								summaryClassName={parentClassName}
-								{...item}
-								key={key}
-							/>
-						)
+						return <LinkList {...item} key={key} />
 
 					default:
 						return null
