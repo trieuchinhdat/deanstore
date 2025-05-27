@@ -133,7 +133,20 @@ export const MODULES_QUERY = groq`
 		assets[]{
 			...,
 			_type == 'img' => { ${ASSET_IMG_QUERY} }
-		}
+		},
+		tiers->{
+    title,
+    highlight,
+    price {
+      base,
+      strikethrough,
+      suffix
+    },
+    ctas[] {
+      ...,
+    },
+    content
+  }
 	},
 	_type == 'action-buy' => { actionbuy[]-> },
 	_type == 'form-module' => {
@@ -174,6 +187,7 @@ export async function getSite() {
 				ctas[]{ ${CTA_QUERY} },
 				headerMenu->{ ${NAVIGATION_QUERY} },
 				footerMenu->{ ${NAVIGATION_QUERY} },
+				chatbox->{ ${NAVIGATION_QUERY} },
 				social->{ ${NAVIGATION_QUERY} },
 				'ogimage': ogimage.asset->url,
 				ordersite->{

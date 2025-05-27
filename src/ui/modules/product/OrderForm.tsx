@@ -10,6 +10,8 @@ type OrderFormProps = {
 	option2?: Option[]
 	title?: string
 	layout?: 'form order' | 'form contact'
+	widthStyle?: string
+	backgroundImage?: string
 	backgroundColor?: string
 }
 export default async function OrderForm({
@@ -18,22 +20,38 @@ export default async function OrderForm({
 	option2 = [],
 	title,
 	layout,
+	widthStyle,
+	backgroundImage,
 	backgroundColor,
 }: OrderFormProps) {
 	const { ordersite } = await getSite()
 	return (
 		<section
-			id="order-form-gform"
-			style={{ backgroundColor: backgroundColor || '#ffffff' }}
-			className="richtext overflow-hidden rounded-xl"
+			id={layout === 'form contact' ? 'id-form-contact' : 'id-form-order'}
+			className="section section-form-container space-y-8"
+			{...(backgroundImage && {
+				style: {
+					backgroundImage: `url(${backgroundImage})`,
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'center',
+				},
+			})}
 		>
 			{layout === 'form order' && (
-				<div className="section section-form group-global grid gap-8 rounded-xl p-8 max-md:p-4 md:grid-cols-1">
+				<div
+					className="section section-form mx-auto grid gap-8 rounded-xl"
+					style={{
+						maxWidth: widthStyle,
+						backgroundColor: backgroundColor,
+					}}
+				>
 					{content && <PortableText value={content} />}
 					{title !== undefined && (
-						<p className="text-lg font-medium md:text-xl">Sản phẩm - {title}</p>
+						<p className="text-lg font-medium md:text-xl">{title}</p>
 					)}
 					<FormBuyNow
+						title={title}
 						option1={option1}
 						option2={option2}
 						product={title}
@@ -42,7 +60,13 @@ export default async function OrderForm({
 				</div>
 			)}
 			{layout === 'form contact' && (
-				<div className="section section-form mx-auto grid max-w-screen-md gap-8 rounded-xl">
+				<div
+					className="section section-form mx-auto grid gap-8 rounded-xl"
+					style={{
+						maxWidth: widthStyle,
+						backgroundColor: backgroundColor,
+					}}
+				>
 					<header className="mx-auto w-full max-w-screen-lg text-center">
 						<PortableText value={content} />
 					</header>

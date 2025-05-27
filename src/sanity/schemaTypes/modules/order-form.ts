@@ -17,6 +17,12 @@ export default defineType({
 			initialValue: 'form order',
 		}),
 		defineField({
+			name: 'title',
+			title: 'Title',
+			type: 'string',
+			hidden: ({ parent }) => parent?.layout === 'form order',
+		}),
+		defineField({
 			name: 'content',
 			type: 'array',
 			of: [{ type: 'block' }],
@@ -34,6 +40,31 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'options' }],
 			hidden: ({ parent }) => parent?.layout !== 'form order',
+		}),
+		defineField({
+			name: 'widthStyle',
+			title: 'Width style',
+			description: 'If not set, the default width will be used.',
+			type: 'string',
+			initialValue: '100%',
+			options: {
+				list: [
+					{ title: 'Default', value: '100%' },
+					{ title: '40%', value: '40%' },
+					{ title: '50%', value: '50%' },
+					{ title: '60%', value: '60%' },
+					{ title: '70%', value: '70%' },
+					{ title: '80%', value: '80%' },
+					{ title: '90%', value: '90%' },
+				],
+				layout: 'dropdown',
+			},
+		}),
+		defineField({
+			name: 'backgroundImage',
+			title: 'Background Image',
+			description: 'If not set, the default background image will be used.',
+			type: 'string',
 		}),
 		defineField({
 			name: 'backgroundColor',

@@ -19,6 +19,7 @@ declare global {
 			headerMenu?: Navigation
 			footerMenu?: Navigation
 			social?: Navigation
+			chatbox?: Navigation
 			ordersite: OrderSetting
 		}
 
@@ -79,6 +80,7 @@ declare global {
 			headings?: { style: string; text: string }[]
 			categories: ProductCategory[]
 			ordersite: any
+			tires?: Pricing[]
 		}
 		interface ProductCategory extends SanityDocument {
 			title: string

@@ -73,6 +73,12 @@ export default defineType({
 			group: 'navigation',
 		}),
 		defineField({
+			name: 'chatbox',
+			type: 'reference',
+			to: [{ type: 'navigation' }],
+			group: 'navigation',
+		}),
+		defineField({
 			name: 'ordersite',
 			title: 'Form settings',
 			type: 'reference',

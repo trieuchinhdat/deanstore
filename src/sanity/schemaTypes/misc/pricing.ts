@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { LuDollarSign } from 'react-icons/lu'
+import { admonition } from '../fragments'
 
 export default defineType({
 	name: 'pricing',
@@ -48,7 +49,7 @@ export default defineType({
 		defineField({
 			name: 'content',
 			type: 'array',
-			of: [{ type: 'block' }],
+			of: [{ type: 'block' }, { type: 'custom-html' }, admonition],
 		}),
 	],
 	preview: {

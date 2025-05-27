@@ -7,12 +7,14 @@ import {
 	FaGithub,
 	FaInstagram,
 	FaLinkedinIn,
+	FaPhone,
 	FaTiktok,
 	FaXTwitter,
 	FaYoutube,
 } from 'react-icons/fa6'
 import { IoIosLink } from 'react-icons/io'
 import type { ComponentProps } from 'react'
+import { SiZalo } from 'react-icons/si'
 
 export default async function Social({ className }: ComponentProps<'div'>) {
 	const { social } = await getSite()
@@ -52,6 +54,10 @@ function Icon({
 		<FaBluesky {...props} />
 	) : url?.includes('facebook.com') ? (
 		<FaFacebookF {...props} />
+	) : url?.includes('tel:') ? (
+		<FaPhone {...props} />
+	) : url?.includes('zalo') ? (
+		<SiZalo {...props} />
 	) : url?.includes('github.com') ? (
 		<FaGithub {...props} />
 	) : url?.includes('instagram.com') ? (

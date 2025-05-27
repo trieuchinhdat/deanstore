@@ -9,6 +9,7 @@ import VisualEditingControls from '@/ui/VisualEditingControls'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@/styles/app.css'
+import ChatBox from '@/ui/ChatBox'
 
 export default async function RootLayout({
 	children,
@@ -27,7 +28,7 @@ export default async function RootLayout({
 						{children}
 					</main>
 					<Footer />
-
+					<ChatBox className="mb-auto -ml-2" />
 					<VisualEditingControls />
 				</NuqsAdapter>
 

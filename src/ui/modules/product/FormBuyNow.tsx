@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 type Option = { title: string }
 type Props = {
+	title?: string
 	option1?: Option[]
 	option2?: Option[]
 	product?: string
@@ -19,12 +20,13 @@ type FormValues = {
 	phone: string
 	email?: any
 	address: string
-	product: string
+	title: string
 	option1?: string
 	option2?: string
 }
 
 export default function FormBuyNow({
+	title,
 	option1 = [],
 	option2 = [],
 	product,
@@ -41,7 +43,6 @@ export default function FormBuyNow({
 			option2: option2?.[0]?.title || '',
 		},
 	})
-
 	function generateOrderId() {
 		const now = new Date()
 		const day = String(now.getDate()).padStart(2, '0')
@@ -84,7 +85,7 @@ export default function FormBuyNow({
 		formData.append(`entry.` + ordersite.idorderphone, values.phone)
 		formData.append(`entry.` + ordersite.idorderemail, values.email)
 		formData.append(`entry.` + ordersite.idorderaddress, values.address)
-		formData.append(`entry.` + ordersite.idorderproduct, values.product)
+		formData.append(`entry.` + ordersite.idorderproduct, values.title)
 		if (values.option1 && ordersite.idorderoption1)
 			formData.append(`entry.` + ordersite.idorderoption1, values.option1)
 		if (values.option2 && ordersite.idorderoption2)
@@ -110,7 +111,7 @@ export default function FormBuyNow({
 			})
 			reset({
 				order: generateOrderId(),
-				product: product,
+				title: title,
 				option1: values.option1,
 				option2: values.option2,
 			})
@@ -127,8 +128,8 @@ export default function FormBuyNow({
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 				<div>
 					<input
-						{...register('product')}
-						defaultValue={product}
+						{...register('title')}
+						defaultValue={title}
 						readOnly
 						className="hidden w-full rounded-xl bg-gray-100 p-2 font-semibold text-gray-700"
 					/>

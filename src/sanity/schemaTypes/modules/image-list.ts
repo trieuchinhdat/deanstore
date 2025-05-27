@@ -76,6 +76,14 @@ export default defineType({
 				}),
 		}),
 		defineField({
+			name: 'tiers',
+			type: 'reference',
+			to: [{ type: 'pricing' }],
+			title: 'Product Tier',
+			description: 'Select a product tier to display',
+			hidden: ({ parent }) => parent?.layout !== 'product',
+		}),
+		defineField({
 			name: 'autoplay',
 			title: 'Autoplay for carousel ',
 			type: 'boolean',
@@ -89,8 +97,6 @@ export default defineType({
 				'Enable lightbox image (disables link navigation when active)',
 			type: 'boolean',
 			initialValue: false,
-			hidden: ({ parent }) =>
-				parent?.layout !== 'carousel' && parent?.layout !== 'grid',
 		}),
 	],
 	preview: {

@@ -9,6 +9,7 @@ export default function ImageListWrapper({
 	columnsmobile,
 	autoplay,
 	lightbox,
+	tiers,
 }: {
 	assets?: Sanity.Img[]
 	layout?: 'grid' | 'carousel'
@@ -16,6 +17,7 @@ export default function ImageListWrapper({
 	columnsmobile?: number
 	autoplay?: boolean
 	lightbox?: boolean
+	tiers?: Sanity.Pricing
 }) {
 	const isAutoplayEnabled = autoplay ?? false
 	const isLightboxEnabled = lightbox ?? false
@@ -28,6 +30,7 @@ export default function ImageListWrapper({
 			columnsmobile={columnsmobile}
 			autoplay={isAutoplayEnabled}
 			lightbox={isLightboxEnabled}
+			tiers={tiers}
 		/>
 	)
 }

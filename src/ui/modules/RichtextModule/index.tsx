@@ -27,7 +27,7 @@ export default function RichtextModule({
 	return (
 		<section
 			className={cn(
-				'section grid gap-8',
+				'section section-richtext grid gap-8',
 				tableOfContents &&
 					(tocRight ? 'lg:grid-cols-[1fr_auto]' : 'lg:grid-cols-[auto_1fr]'),
 			)}

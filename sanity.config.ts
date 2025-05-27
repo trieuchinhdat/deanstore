@@ -12,6 +12,7 @@ import {
 	projectUsersWidget,
 } from '@sanity/dashboard'
 import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
+import { media } from 'sanity-plugin-media'
 import { visionTool } from '@sanity/vision'
 import { codeInput } from '@sanity/code-input'
 import { supportedLanguages } from '@/lib/i18n'
@@ -30,6 +31,7 @@ export default defineConfig({
 
 	plugins: [
 		structure,
+		media(),
 		// presentation,
 		dashboardTool({
 			name: 'deployment',
