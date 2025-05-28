@@ -68,7 +68,7 @@ export default function ImageList({
 				{layout === 'grid' && (
 					<div
 						className={[
-							'grid gap-2',
+							'layout-grid grid gap-2',
 							gridColsMap[columnsmobile || 1],
 							`md:${gridColsMap[columnsdesktop || 2]}`,
 							`lg:${gridColsMap[columnsdesktop || 2]}`,
@@ -194,7 +194,7 @@ export default function ImageList({
 				{layout === 'product' && (
 					<div
 						className={cn(
-							'grid items-start gap-6',
+							'layout-product grid items-start gap-6',
 							tiers ? 'grid grid-cols-1 gap-6 lg:grid-cols-10' : 'grid-cols-1',
 						)}
 					>

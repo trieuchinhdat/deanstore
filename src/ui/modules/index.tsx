@@ -27,6 +27,7 @@ import OrderForm from './product/OrderForm'
 
 import dynamic from 'next/dynamic'
 import { createDataAttribute } from 'next-sanity'
+import RatingsReviewsWrap from './product/RatingsReviewsWrap'
 
 const MODULE_MAP = {
 	'accordion-list': AccordionList,
@@ -58,6 +59,7 @@ const MODULE_MAP = {
 	'image-list': ImageList,
 	'action-buy': ActionBuy,
 	'order-form': OrderForm,
+	'ratings-reviews': RatingsReviewsWrap,
 } as const
 
 export default function Modules({
@@ -83,7 +85,7 @@ export default function Modules({
 				return {}
 		}
 	}
-
+	// console.log(modules)
 	return (
 		<>
 			{modules?.map((module) => {

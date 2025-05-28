@@ -124,7 +124,7 @@ export default function FormBuyNow({
 
 	return (
 		<>
-			<DailyCountdown />
+			{/* <DailyCountdown /> */}
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 				<div>
 					<input

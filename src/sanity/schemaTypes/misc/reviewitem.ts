@@ -10,7 +10,14 @@ export default defineType({
 	fields: [
 		defineField({
 			name: 'title',
+			title: 'Name Author',
 			type: 'string',
+		}),
+		defineField({
+			name: 'rating',
+			title: 'Rating',
+			type: 'number',
+			validation: (Rule) => Rule.min(1).max(5).required(),
 		}),
 		defineField({
 			name: 'content',
@@ -27,7 +34,6 @@ export default defineType({
 			name: 'publishDate',
 			type: 'date',
 			validation: (Rule) => Rule.required(),
-			group: 'content',
 		}),
 	],
 	preview: {

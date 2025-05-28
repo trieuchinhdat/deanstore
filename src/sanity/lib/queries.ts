@@ -161,7 +161,29 @@ export const MODULES_QUERY = groq`
 				title
 			}
 		}
-	}	
+	},
+	_type == 'ratings-reviews' => {
+	reviews->{
+		title,
+		reviewItems[]{
+			...,
+			content[]{
+				...,
+				_type == "image" => {
+					"imageUrl": asset->url,
+					"alt": alt
+				}
+			}
+		}
+	},
+	backgroundColor,
+	product->{
+		detail {
+			...,
+			image { ${IMAGE_QUERY} }
+		}
+	}
+}
 `
 
 export const GLOBAL_MODULE_PATH_QUERY = groq`
@@ -201,7 +223,9 @@ export async function getSite() {
 					idorderoption2,
 					urlordergform,
 					idnewletteremail,
-					urlnewlettergform		
+					urlnewlettergform,
+					idreviewsnameproduct,
+					urlreviewsgform		
 				},
 			}
 		`,

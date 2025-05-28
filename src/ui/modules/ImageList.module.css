@@ -9,7 +9,7 @@
 .thumbSlide :global(.swiper-slide-thumb-active) {
 	opacity: 1 !important;
 	transform: scale(1) !important;
-	border-color: #2563eb !important;
+	border-color: var(--color-accent) !important;
 	border-width: 2px !important;
 }
 
@@ -17,6 +17,6 @@
 :global(.swiper-slide-thumb-active) .thumbSlide {
 	opacity: 1 !important;
 	transform: scale(1) !important;
-	border-color: #2563eb !important;
+	border-color: var(--color-accent) !important;
 	border-width: 2px !important;
 }

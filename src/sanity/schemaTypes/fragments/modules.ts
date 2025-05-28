@@ -33,6 +33,7 @@ export default defineField({
 		{ type: 'testimonial.featured' },
 		{ type: 'image-list' },
 		{ type: 'order-form' },
+		{ type: 'ratings-reviews' },
 	],
 	options: {
 		insertMenu: {
@@ -64,6 +65,7 @@ export default defineField({
 						'logo-list',
 						'person-list',
 						'pricing-list',
+						'ratings-reviews',
 						'stat-list',
 						'step-list',
 						'testimonial-list',

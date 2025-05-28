@@ -18,6 +18,7 @@ import person from './misc/person'
 import pricing from './misc/pricing'
 import reputation from './misc/reputation'
 import testimonial from './misc/testimonial'
+import reviewlist from './modules/review-list'
 
 // objects
 import cta from './objects/cta'
@@ -60,6 +61,8 @@ import actionBuy from './modules/action-buy'
 import options from './objects/options'
 import orderForm from './modules/order-form'
 import ordersetting from './misc/ordersetting'
+import reviewitem from './misc/reviewitem'
+import ratingsReviews from './modules/ratings-reviews'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
 	// documents
@@ -81,6 +84,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	reputation,
 	testimonial,
 	ordersetting,
+	reviewitem,
 
 	// objects
 	cta,
@@ -111,6 +115,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	logoList,
 	personList,
 	pricingList,
+	reviewlist,
+	ratingsReviews,
 	richtextModule,
 	scheduleModule,
 	searchModule,

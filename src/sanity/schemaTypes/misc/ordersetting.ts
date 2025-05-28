@@ -4,7 +4,11 @@ export default defineType({
 	name: 'ordersetting',
 	title: 'Form settings',
 	type: 'document',
-	groups: [{ name: 'order', default: true }, { name: 'contact' }],
+	groups: [
+		{ name: 'order', default: true },
+		{ name: 'contact' },
+		{ name: 'reviews' },
+	],
 	fields: [
 		defineField({
 			name: 'idorder',
@@ -71,6 +75,18 @@ export default defineType({
 			title: 'Url newletter google form',
 			type: 'string',
 			group: 'contact',
+		}),
+		defineField({
+			name: 'idreviewsnameproduct',
+			title: 'ID Reviews Name Product',
+			type: 'string',
+			group: 'reviews',
+		}),
+		defineField({
+			name: 'urlreviewsgform',
+			title: 'Url reviews google form',
+			type: 'string',
+			group: 'reviews',
 		}),
 	],
 	preview: {

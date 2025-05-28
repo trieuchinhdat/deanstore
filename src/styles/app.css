@@ -26,6 +26,7 @@
 		font-family: Inter, sans-serif;
 		font-optical-sizing: auto;
 		font-style: normal;
+		font-size: 1rem;
 	}
 
 	[hidden] {
@@ -518,6 +519,19 @@
 .section-richtext h3,
 .section-richtext h4 {
 	font-size: 18px;
+}
+
+.section-image-list .action {
+	min-width: 220px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 15px 30px;
+}
+
+.section-reviews .action {
+	min-width: 220px;
+	font-weight: 600;
+	padding: 15px 30px;
 }
 
 /* STYLE MOBILE */

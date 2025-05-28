@@ -38,6 +38,7 @@ export const structure = structureTool({
 					S.documentTypeListItem('pricing').title('Pricing tiers'),
 					S.documentTypeListItem('reputation'),
 					S.documentTypeListItem('testimonial').title('Testimonials'),
+					S.documentTypeListItem('ratings-reviews').title('Reviews'),
 				]),
 			]),
 })

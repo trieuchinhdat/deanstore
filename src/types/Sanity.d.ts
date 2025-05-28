@@ -129,7 +129,27 @@ declare global {
 			limit?: number
 			avatars?: Image[]
 		}
+		interface ReviewItem extends SanityDocument {
+			title: string
+			rating?: number
+			publishDate?: string
+			content?: any
+			approved?: boolean
+		}
+		interface ReviewList extends SanityDocument {
+			title?: string
+			reviewItems?: ReviewItem[]
+		}
 
+		interface RatingsReviewsBase extends SanityDocument {
+			readonly _type: 'ratings-reviews'
+			reviews?: ReviewList
+			backgroundColor?: string
+		}
+		interface RatingsReviews extends SanityDocument {
+			title?: string
+			reviews?: ReviewList
+		}
 		interface Testimonial extends SanityDocument {
 			content: any
 			source?: string
@@ -239,6 +259,7 @@ declare global {
 			idorderoption1?: string
 			idorderoption2?: string
 			idordergform?: string
+			urlreviewsgform?: string
 		}
 		interface OrderForm extends SanityDocument {
 			readonly _type: 'order-form'
