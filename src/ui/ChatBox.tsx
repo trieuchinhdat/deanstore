@@ -38,7 +38,7 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 	return (
 		<div
 			className={cn(
-				'fixed right-8 bottom-8 z-50 flex flex-col items-end gap-2',
+				'fixed right-8 bottom-8 z-50 flex flex-col items-end gap-2 max-md:right-4 max-md:bottom-4',
 				className,
 			)}
 		>
@@ -48,7 +48,7 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 					{socialItems.map((item, key) =>
 						item._type === 'link' ? (
 							<CTA className="group" link={item} key={key}>
-								<div className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110">
+								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110 min-md:h-16 min-md:w-16">
 									<Icon
 										url={item.external}
 										aria-label={item.label}
@@ -64,10 +64,14 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 			{/* Nút Messenger Toggle */}
 			<button
 				onClick={() => setOpen(!open)}
-				className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition hover:scale-105"
+				className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition hover:scale-105 min-md:h-16 min-md:w-16"
 				aria-label={open ? 'Close chat menu' : 'Open chat menu'}
 			>
-				{open ? <FaXmark size={28} /> : <FaRegComments size={28} />}
+				{open ? (
+					<FaXmark size={28} />
+				) : (
+					<FaRegComments size={28} className="animate-shake" />
+				)}
 			</button>
 		</div>
 	)

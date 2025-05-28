@@ -27,6 +27,17 @@ export default defineType({
 			group: 'content',
 		}),
 		defineField({
+			name: 'categories',
+			type: 'array',
+			of: [
+				{
+					type: 'reference',
+					to: [{ type: 'product.category' }],
+				},
+			],
+			group: 'content',
+		}),
+		defineField({
 			name: 'metadata',
 			type: 'metadata',
 			group: 'metadata',

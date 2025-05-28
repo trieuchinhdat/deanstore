@@ -473,6 +473,31 @@
 	margin-bottom: 60px;
 }
 
+/* EFFECT TEMPLATE */
+@keyframes shake {
+
+	0%,
+	100% {
+		transform: rotate(0deg) translateX(0px) rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(2deg) translateX(1px) rotate(-2deg);
+	}
+
+	50% {
+		transform: rotate(0deg) translateX(-1px) rotate(2deg);
+	}
+
+	75% {
+		transform: rotate(-2deg) translateX(1px) rotate(0deg);
+	}
+}
+
+.animate-shake {
+	animation: shake 1s infinite ease-in-out;
+}
+
 /* STYLE SECTION */
 .section-form-container {
 	padding-left: 0;
