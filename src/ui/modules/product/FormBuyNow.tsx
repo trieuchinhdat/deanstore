@@ -29,7 +29,6 @@ export default function FormBuyNow({
 	title,
 	option1 = [],
 	option2 = [],
-	product,
 	ordersite,
 }: Props) {
 	const {
@@ -49,7 +48,7 @@ export default function FormBuyNow({
 		const month = String(now.getMonth() + 1).padStart(2, '0')
 		const year = String(now.getFullYear()).slice(-2) // 2 số cuối của năm
 
-		const datePart = `${day}${month}${year}`
+		const datePart = `${year}${month}${day}`
 		const random = Math.floor(1000 + Math.random() * 9000) // Random 4 số
 
 		return `DH${datePart}-${random}`
@@ -100,7 +99,7 @@ export default function FormBuyNow({
 			Swal.fire({
 				icon: 'success',
 				title: '🎉 CHÚC MỪNG BẠN ĐÃ ĐẶT HÀNG THÀNH CÔNG',
-				html: 'Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất,<br/>nên hãy để ý điện thoại, shipper sẽ gọi đến nhé ạ!',
+				html: 'Nếu không nhận được email xác nhận đơn hàng, vui lòng kiểm tra hộp thư rác hoặc spam hoặc liên hệ với shop để được hỗ trợ.',
 				confirmButtonText: 'Đóng',
 				customClass: {
 					popup: 'rounded-xl p-6',

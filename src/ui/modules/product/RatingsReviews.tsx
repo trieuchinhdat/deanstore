@@ -39,7 +39,6 @@ export default function RatingsReviews({
 	const handleNext = () => {
 		setCurrentPage((page) => Math.min(page + 1, totalPages))
 	}
-	console.log(reviews)
 
 	return (
 		<section
@@ -127,7 +126,7 @@ export default function RatingsReviews({
 								'rounded px-4 py-2 font-semibold',
 								currentPage === 1
 									? 'cursor-not-allowed bg-gray-300 text-gray-600'
-									: 'bg-blue-600 text-white hover:bg-blue-700',
+									: 'btn-global-style text-white',
 							)}
 						>
 							Prev
@@ -144,7 +143,7 @@ export default function RatingsReviews({
 								'rounded px-4 py-2 font-semibold',
 								currentPage === totalPages
 									? 'cursor-not-allowed bg-gray-300 text-gray-600'
-									: 'bg-blue-600 text-white hover:bg-blue-700',
+									: 'btn-global-style text-white',
 							)}
 						>
 							Next

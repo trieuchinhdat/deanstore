@@ -527,7 +527,6 @@
 
 .section-form-container h2 {
 	font-size: 24px;
-	margin-bottom: 20px;
 	font-weight: 600;
 }
 
@@ -540,11 +539,26 @@
 	font-size: 18px;
 }
 
-.section-image-list .action {
+.section-image-list .action,
+.section-image-list .action-outline,
+.section-image-list .ghost,
+.section-image-list .link {
 	min-width: 220px;
 	font-weight: 600;
 	text-transform: uppercase;
 	padding: 15px 30px;
+
+}
+
+.section-image-list .action-outline,
+.section-image-list .ghost {
+	border: 1px solid #07acf7;
+	color: #07acf7;
+}
+
+.section-image-list .link {
+	background: transparent;
+	color: #07acf7;
 }
 
 .section-reviews .action {

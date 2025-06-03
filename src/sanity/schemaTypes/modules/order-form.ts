@@ -18,9 +18,12 @@ export default defineType({
 		}),
 		defineField({
 			name: 'title',
-			title: 'Title',
+			title: 'Order Product Title',
 			type: 'string',
-			hidden: ({ parent }) => parent?.layout === 'form order',
+			description: 'If not set, the default title will be used.',
+			initialValue: 'Order Product Default Title',
+			validation: (Rule) => Rule.required(),
+			hidden: ({ parent }) => parent?.layout !== 'form order',
 		}),
 		defineField({
 			name: 'content',

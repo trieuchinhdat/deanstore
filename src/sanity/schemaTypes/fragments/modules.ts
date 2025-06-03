@@ -52,7 +52,7 @@ export default defineField({
 				},
 				{
 					name: 'product',
-					of: ['product-content', 'product-list'],
+					of: ['product-content', 'product-list', 'ratings-reviews'],
 				},
 				{ name: 'hero', of: ['hero', 'hero.saas', 'hero.split'] },
 				{

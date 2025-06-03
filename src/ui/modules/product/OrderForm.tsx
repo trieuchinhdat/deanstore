@@ -46,10 +46,9 @@ export default async function OrderForm({
 						backgroundColor: backgroundColor,
 					}}
 				>
-					{content && <PortableText value={content} />}
-					{title !== undefined && (
-						<p className="text-lg font-medium md:text-xl">{title}</p>
-					)}
+					<header className="mx-auto w-full max-w-screen-lg text-center">
+						<PortableText value={content} />
+					</header>
 					<FormBuyNow
 						title={title}
 						option1={option1}
