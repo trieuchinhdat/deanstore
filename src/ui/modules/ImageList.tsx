@@ -51,6 +51,7 @@ export default function ImageList({
 				alt: block.alt || '',
 			}
 		})
+	const [closeOnBackdropClick, setCloseOnBackdropClick] = useState(false)
 
 	const gridColsMap: Record<number, string> = {
 		1: 'grid-cols-1',
@@ -119,7 +120,9 @@ export default function ImageList({
 								index={index}
 								on={{ view: ({ index }) => setIndex(index) }}
 								plugins={[Zoom]}
+								carousel={{ finite: true }}
 								zoom={{ maxZoomPixelRatio: 2, zoomInMultiplier: 1.5 }}
+								controller={{ closeOnBackdropClick: true }}
 							/>
 						)}
 					</div>
@@ -184,7 +187,9 @@ export default function ImageList({
 								index={index}
 								on={{ view: ({ index }) => setIndex(index) }}
 								plugins={[Zoom]}
+								carousel={{ finite: true }}
 								zoom={{ maxZoomPixelRatio: 2, zoomInMultiplier: 1.5 }}
+								controller={{ closeOnBackdropClick: true }}
 							/>
 						)}
 					</Swiper>
@@ -233,7 +238,9 @@ export default function ImageList({
 										index={index}
 										on={{ view: ({ index }) => setIndex(index) }}
 										plugins={[Zoom]}
+										carousel={{ finite: true }}
 										zoom={{ maxZoomPixelRatio: 2, zoomInMultiplier: 1.5 }}
+										controller={{ closeOnBackdropClick: true }}
 									/>
 								)}
 							</Swiper>

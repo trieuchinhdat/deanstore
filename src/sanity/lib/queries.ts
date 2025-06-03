@@ -165,6 +165,7 @@ export const MODULES_QUERY = groq`
 	_type == 'ratings-reviews' => {
 	reviews->{
 		title,
+		backgroundColor,
 		reviewItems[]{
 			...,
 			content[]{
@@ -176,7 +177,6 @@ export const MODULES_QUERY = groq`
 			}
 		}
 	},
-	backgroundColor,
 	product->{
 		detail {
 			...,

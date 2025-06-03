@@ -12,12 +12,10 @@ const REVIEWS_PER_PAGE = 4
 
 export default function RatingsReviews({
 	reviews,
-	backgroundColor,
 	urlreviewsgsheet,
 	idreviewsnameproduct,
 }: Partial<{
 	reviews: Sanity.RatingsReviews
-	backgroundColor: string
 	urlreviewsgsheet: string
 	idreviewsnameproduct: string
 }>) {
@@ -41,11 +39,13 @@ export default function RatingsReviews({
 	const handleNext = () => {
 		setCurrentPage((page) => Math.min(page + 1, totalPages))
 	}
+	console.log(reviews)
+
 	return (
 		<section
 			className="section-reviews"
 			id="id-section-reviews"
-			style={{ backgroundColor: backgroundColor || '#ffffff' }}
+			style={{ backgroundColor: reviews?.backgroundColor || '#ffffff' }}
 		>
 			<div className="section ml-auto space-y-8">
 				{reviews?.title && (
@@ -105,6 +105,13 @@ export default function RatingsReviews({
 										},
 									}}
 								/>
+							</div>
+							<div className="text-xs text-gray-500">
+								{new Date(item.publishDate).toLocaleDateString('vi-VN', {
+									day: '2-digit',
+									month: '2-digit',
+									year: 'numeric',
+								})}
 							</div>
 						</div>
 					))}

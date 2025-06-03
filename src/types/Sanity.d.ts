@@ -144,11 +144,11 @@ declare global {
 		interface RatingsReviewsBase extends SanityDocument {
 			readonly _type: 'ratings-reviews'
 			reviews?: ReviewList
-			backgroundColor?: string
 		}
 		interface RatingsReviews extends SanityDocument {
 			title?: string
 			reviews?: ReviewList
+			backgroundColor?: string
 		}
 		interface Testimonial extends SanityDocument {
 			content: any

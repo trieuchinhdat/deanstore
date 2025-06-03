@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import {
 	FaBluesky,
 	FaFacebookF,
+	FaFacebookMessenger,
 	FaGithub,
 	FaInstagram,
 	FaLinkedinIn,
@@ -23,7 +24,7 @@ import type { ComponentProps } from 'react'
 
 export default function ChatBox({ className }: ComponentProps<'div'>) {
 	const [socialItems, setSocialItems] = useState<any[]>([])
-	const [open, setOpen] = useState(false)
+	const [open, setOpen] = useState(true)
 
 	useEffect(() => {
 		getSite().then((data) => {
@@ -38,17 +39,17 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 	return (
 		<div
 			className={cn(
-				'fixed right-8 bottom-8 z-50 flex flex-col items-end gap-2 max-md:right-4 max-md:bottom-4',
+				'fixed right-8 bottom-12 z-50 flex flex-col items-end gap-2 max-md:right-4 max-md:bottom-8',
 				className,
 			)}
 		>
-			{/* Danh sách mạng xã hội */}
+			{/* List social */}
 			{open && (
-				<div className="flex flex-col items-end gap-3 transition-all">
+				<div className="flex flex-col items-end gap-2 transition-all">
 					{socialItems.map((item, key) =>
 						item._type === 'link' ? (
 							<CTA className="group" link={item} key={key}>
-								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110 min-md:h-16 min-md:w-16">
+								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110 min-md:h-14 min-md:w-14">
 									<Icon
 										url={item.external}
 										aria-label={item.label}
@@ -61,10 +62,10 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 				</div>
 			)}
 
-			{/* Nút Messenger Toggle */}
+			{/* Button Messenger Toggle */}
 			<button
 				onClick={() => setOpen(!open)}
-				className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition hover:scale-105 min-md:h-16 min-md:w-16"
+				className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg transition hover:scale-105 min-md:h-14 min-md:w-14"
 				aria-label={open ? 'Close chat menu' : 'Open chat menu'}
 			>
 				{open ? (
@@ -95,6 +96,14 @@ function Icon({
 	if (url.includes('facebook.com')) {
 		return <FaFacebookF className={cn('text-blue-600', className)} {...props} />
 	}
+	if (url.includes('messenger.com')) {
+		return (
+			<FaFacebookMessenger
+				className={cn('text-blue-600', className)}
+				{...props}
+			/>
+		)
+	}
 	if (url.includes('github.com')) {
 		return <FaGithub className={cn('text-gray-800', className)} {...props} />
 	}
@@ -116,6 +125,6 @@ function Icon({
 		return <FaYoutube className={cn('text-red-600', className)} {...props} />
 	}
 
-	// Mặc định (link khác)
+	// default icon for links
 	return <IoIosLink className={cn('text-gray-500', className)} {...props} />
 }
