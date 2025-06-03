@@ -4,7 +4,6 @@ import { fetchSanityLive } from '@/sanity/lib/fetch'
 
 export default async function RatingsReviewsWrap({
 	reviews,
-	backgroundColor,
 }: {
 	reviews?: Sanity.RatingsReviews
 	backgroundColor?: string
@@ -14,7 +13,6 @@ export default async function RatingsReviewsWrap({
 	return (
 		<RatingsReviews
 			reviews={reviews}
-			backgroundColor={backgroundColor}
 			urlreviewsgsheet={ordersite.urlreviewsgform}
 			idreviewsnameproduct={ordersite.idreviewsnameproduct}
 		/>
