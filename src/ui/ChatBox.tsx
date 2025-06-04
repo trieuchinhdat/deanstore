@@ -17,6 +17,7 @@ import {
 	FaRegComments,
 	FaXmark,
 	FaPhone,
+	FaRegMessage,
 } from 'react-icons/fa6'
 import { SiZalo } from 'react-icons/si'
 import { IoIosLink } from 'react-icons/io'
@@ -49,7 +50,7 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 					{socialItems.map((item, key) =>
 						item._type === 'link' ? (
 							<CTA className="group" link={item} key={key}>
-								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110 min-md:h-14 min-md:w-14">
+								<div className="flex h-13 w-13 items-center justify-center rounded-full bg-white shadow-md transition-transform hover:scale-110 min-md:h-14 min-md:w-14">
 									<Icon
 										url={item.external}
 										aria-label={item.label}
@@ -65,13 +66,13 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 			{/* Button Messenger Toggle */}
 			<button
 				onClick={() => setOpen(!open)}
-				className="action flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg transition hover:scale-105 min-md:h-14 min-md:w-14"
+				className="action flex h-13 w-13 items-center justify-center rounded-full text-white shadow-lg transition hover:scale-105 min-md:h-14 min-md:w-14"
 				aria-label={open ? 'Close chat menu' : 'Open chat menu'}
 			>
 				{open ? (
 					<FaXmark size={28} />
 				) : (
-					<FaRegComments size={28} className="animate-shake" />
+					<FaRegMessage size={28} className="animate-shake" />
 				)}
 			</button>
 		</div>

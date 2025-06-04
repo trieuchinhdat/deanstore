@@ -6,7 +6,9 @@
 	--color-ink: #000;
 	--color-accent: #d09b68;
 	--color-bg-btn: #d09b68;
+	--color-bg-section: #fff5eb;
 	--color-text-btn: #fff;
+	--color-title-head: #d09b68;
 	--max-height-fold: calc(100svh - var(--header-height));
 }
 
@@ -423,12 +425,23 @@
 	background: var(--color-accent);
 }
 
+.bg-global-style {
+	background: var(--color-bg-section);
+	border: 1px dashed var(--color-accent);
+	position: relative;
+}
+
 .btn-action-buy {
 	text-decoration-line: none;
 	min-width: 250px;
 	text-align: center;
 	background-color: var(--color-bg-btn);
 	color: var(--color-text-btn);
+	font-weight: 600;
+}
+
+.richtext .technical {
+	color: var(--color-title-head);
 }
 
 .link-global:hover {
@@ -525,9 +538,13 @@
 	max-width: 100%;
 }
 
-.section-form-container h2 {
+.section-form-container h2,
+.section-form-container h3 {
 	font-size: 24px;
 	font-weight: 600;
+	color: var(--color-title-head);
+	margin-bottom: 10px;
+	text-transform: uppercase;
 }
 
 .section-richtext h2 {

@@ -17,26 +17,38 @@ export default defineType({
 			initialValue: 'button',
 		}),
 		defineField({
-			name: 'content',
-			type: 'array',
-			of: [{ type: 'block' }],
-			hidden: ({ parent }) => parent?.layout !== 'product',
-		}),
-		defineField({
-			name: 'title',
-			type: 'string',
-		}),
-		defineField({
-			name: 'url',
-			type: 'string',
-		}),
-		defineField({
 			name: 'assets',
 			title: 'Assets',
 			type: 'array',
 			of: [{ type: 'img' }],
 			validation: (Rule) => Rule.max(1),
 			hidden: ({ parent }) => parent?.layout !== 'product',
+		}),
+		defineField({
+			name: 'content',
+			type: 'array',
+			of: [{ type: 'block' }],
+			hidden: ({ parent }) => parent?.layout !== 'product',
+		}),
+		defineField({
+			name: 'basicInfoBtn',
+			title: 'Title & URL',
+			type: 'object',
+			options: {
+				columns: 2,
+			},
+			fields: [
+				{
+					name: 'title',
+					type: 'string',
+					title: 'Title',
+				},
+				{
+					name: 'url',
+					type: 'string',
+					title: 'URL',
+				},
+			],
 		}),
 	],
 	preview: {
