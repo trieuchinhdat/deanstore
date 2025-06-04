@@ -27,9 +27,9 @@ export default function PostPreviewLarge({ post }: { post: Sanity.BlogPost }) {
 			</figure>
 
 			<div className="mx-auto max-w-lg space-y-4 p-4 sm:p-6">
-				<div className="h2 md:h1">
+				<div className="h4">
 					<Link
-						className="link-global"
+						className="link-global line-clamp-3 text-lg sm:text-xl"
 						href={resolveUrl(post, { base: false })}
 					>
 						<span className="absolute inset-0" />

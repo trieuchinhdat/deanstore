@@ -41,29 +41,29 @@ export default function DailyCountdown({
 					⏰ Ưu đãi kết thúc sau:
 				</div>
 
-				<div className="flex justify-center gap-4 text-gray-800">
+				<div className="flex justify-center gap-4 text-white">
 					{/* DAYS */}
-					<div className="flex flex-col items-center rounded-lg bg-gray-100 px-4 py-2 shadow-sm">
+					<div className="flex flex-col items-center rounded-lg bg-red-600 px-4 py-2 shadow-md">
 						<div className="text-2xl font-bold">{days}</div>
-						<div className="text-xs text-gray-600">ngày</div>
+						<div className="text-xs">ngày</div>
 					</div>
 
 					{/* HOURS */}
-					<div className="flex flex-col items-center rounded-lg bg-gray-100 px-4 py-2 shadow-sm">
+					<div className="flex flex-col items-center rounded-lg bg-red-600 px-4 py-2 shadow-md">
 						<div className="text-2xl font-bold">{hours}</div>
-						<div className="text-xs text-gray-600">giờ</div>
+						<div className="text-xs">giờ</div>
 					</div>
 
 					{/* MINUTES */}
-					<div className="flex flex-col items-center rounded-lg bg-gray-100 px-4 py-2 shadow-sm">
+					<div className="flex flex-col items-center rounded-lg bg-red-600 px-4 py-2 shadow-md">
 						<div className="text-2xl font-bold">{minutes}</div>
-						<div className="text-xs text-gray-600">phút</div>
+						<div className="text-xs">phút</div>
 					</div>
 
 					{/* SECONDS */}
-					<div className="flex flex-col items-center rounded-lg bg-gray-100 px-4 py-2 shadow-sm">
+					<div className="flex flex-col items-center rounded-lg bg-red-600 px-4 py-2 shadow-md">
 						<div className="text-2xl font-bold">{seconds}</div>
-						<div className="text-xs text-gray-600">giây</div>
+						<div className="text-xs">giây</div>
 					</div>
 				</div>
 			</div>

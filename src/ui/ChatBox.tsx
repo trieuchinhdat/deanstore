@@ -65,7 +65,7 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 			{/* Button Messenger Toggle */}
 			<button
 				onClick={() => setOpen(!open)}
-				className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg transition hover:scale-105 min-md:h-14 min-md:w-14"
+				className="action flex h-12 w-12 items-center justify-center rounded-full text-white shadow-lg transition hover:scale-105 min-md:h-14 min-md:w-14"
 				aria-label={open ? 'Close chat menu' : 'Open chat menu'}
 			>
 				{open ? (
