@@ -1,8 +1,6 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import Link from 'next/link'
-import DailyCountdown from './DailyCountdown'
 import Swal from 'sweetalert2'
 
 type Option = { title: string }
@@ -123,7 +121,6 @@ export default function FormBuyNow({
 
 	return (
 		<>
-			{/* <DailyCountdown /> */}
 			<form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 				<div>
 					<input

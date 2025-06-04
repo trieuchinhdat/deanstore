@@ -1,11 +1,13 @@
 import { defineField, defineType } from 'sanity'
 import { MdOutlineNoteAlt } from 'react-icons/md'
+import { imageBlock } from '../fragments'
 
 export default defineType({
 	name: 'order-form',
 	title: 'Form Contact',
 	icon: MdOutlineNoteAlt,
 	type: 'object',
+	groups: [{ name: 'content', default: true }, { name: 'style' }],
 	fields: [
 		defineField({
 			name: 'layout',
@@ -15,6 +17,7 @@ export default defineType({
 				layout: 'radio',
 			},
 			initialValue: 'form order',
+			group: 'content',
 		}),
 		defineField({
 			name: 'title',
@@ -24,11 +27,35 @@ export default defineType({
 			initialValue: 'Order Product Default Title',
 			validation: (Rule) => Rule.required(),
 			hidden: ({ parent }) => parent?.layout !== 'form order',
+			group: 'content',
 		}),
 		defineField({
 			name: 'content',
 			type: 'array',
-			of: [{ type: 'block' }],
+			of: [{ type: 'block' }, imageBlock, { type: 'custom-html' }],
+			group: 'content',
+		}),
+		defineField({
+			name: 'saleSettings',
+			title: 'Settings Flash Sale',
+			type: 'object',
+			group: 'content',
+			options: {
+				columns: 2,
+			},
+			fields: [
+				{
+					name: 'showCountdown',
+					title: 'Show Countdown',
+					type: 'boolean',
+					initialValue: true,
+				},
+				{
+					name: 'lastSaleDate',
+					title: 'Last Sale Date',
+					type: 'datetime',
+				},
+			],
 		}),
 		defineField({
 			name: 'option1',
@@ -36,6 +63,7 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'options' }],
 			hidden: ({ parent }) => parent?.layout !== 'form order',
+			group: 'content',
 		}),
 		defineField({
 			name: 'option2',
@@ -43,6 +71,14 @@ export default defineType({
 			type: 'array',
 			of: [{ type: 'options' }],
 			hidden: ({ parent }) => parent?.layout !== 'form order',
+			group: 'content',
+		}),
+		defineField({
+			name: 'assetOnLeft',
+			type: 'boolean',
+			description: 'Display the asset to the left of the content on desktop',
+			initialValue: false,
+			group: 'style',
 		}),
 		defineField({
 			name: 'widthStyle',
@@ -62,18 +98,21 @@ export default defineType({
 				],
 				layout: 'dropdown',
 			},
+			group: 'style',
 		}),
 		defineField({
 			name: 'backgroundImage',
 			title: 'Background Image',
 			description: 'If not set, the default background image will be used.',
 			type: 'string',
+			group: 'style',
 		}),
 		defineField({
 			name: 'backgroundColor',
 			title: 'Background color',
 			description: 'If not set, the default background color will be used.',
 			type: 'string',
+			group: 'style',
 		}),
 	],
 	preview: {

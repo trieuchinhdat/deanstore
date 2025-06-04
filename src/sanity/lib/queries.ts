@@ -150,17 +150,7 @@ export const MODULES_QUERY = groq`
 	},
 	_type == 'action-buy' => { actionbuy[]-> },
 	_type == 'form-module' => {
-		orderForm {
-			content,
-			urlgform,
-			product,
-			option1[]{
-				title
-			},
-			option2[]{
-				title
-			}
-		}
+		...,
 	},
 	_type == 'ratings-reviews' => {
 	reviews->{
