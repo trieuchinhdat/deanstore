@@ -40,6 +40,7 @@ export default defineType({
 			title: 'Settings Flash Sale',
 			type: 'object',
 			group: 'content',
+			hidden: ({ parent }) => parent?.layout !== 'form order',
 			options: {
 				columns: 2,
 			},
@@ -79,6 +80,7 @@ export default defineType({
 			description: 'Display the asset to the left of the content on desktop',
 			initialValue: false,
 			group: 'style',
+			hidden: ({ parent }) => parent?.layout !== 'form order',
 		}),
 		defineField({
 			name: 'widthStyle',

@@ -8,6 +8,8 @@ import {
 	FaInstagram,
 	FaLinkedinIn,
 	FaPhone,
+	FaPinterestP,
+	FaSnapchat,
 	FaTiktok,
 	FaXTwitter,
 	FaYoutube,
@@ -70,6 +72,10 @@ function Icon({
 		<FaXTwitter {...props} />
 	) : url?.includes('youtube.com') ? (
 		<FaYoutube {...props} />
+	) : url?.includes('pinterest.com') ? (
+		<FaPinterestP {...props} />
+	) : url?.includes('snapchat.com') ? (
+		<FaSnapchat {...props} />
 	) : (
 		<IoIosLink {...props} />
 	)

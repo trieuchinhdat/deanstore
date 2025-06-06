@@ -14,12 +14,13 @@ import {
 	FaTiktok,
 	FaXTwitter,
 	FaYoutube,
-	FaRegComments,
 	FaXmark,
 	FaPhone,
-	FaRegMessage,
+	FaPinterestP,
+	FaSnapchat,
 } from 'react-icons/fa6'
 import { SiZalo } from 'react-icons/si'
+import { LuMessageSquareMore } from 'react-icons/lu'
 import { IoIosLink } from 'react-icons/io'
 import type { ComponentProps } from 'react'
 
@@ -72,7 +73,7 @@ export default function ChatBox({ className }: ComponentProps<'div'>) {
 				{open ? (
 					<FaXmark size={28} />
 				) : (
-					<FaRegMessage size={28} className="animate-shake" />
+					<LuMessageSquareMore size={28} className="animate-shake" />
 				)}
 			</button>
 		</div>
@@ -124,6 +125,14 @@ function Icon({
 	}
 	if (url.includes('youtube.com')) {
 		return <FaYoutube className={cn('text-red-600', className)} {...props} />
+	}
+	if (url.includes('pinterest.com')) {
+		return <FaPinterestP className={cn('text-red-600', className)} {...props} />
+	}
+	if (url.includes('snapchat.com')) {
+		return (
+			<FaSnapchat className={cn('text-yellow-600', className)} {...props} />
+		)
 	}
 
 	// default icon for links
